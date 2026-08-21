@@ -5,11 +5,56 @@
   overflow-x: hidden;
 }
 
+.scroll-top-button {
+  --scroll-progress: 0%;
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 900;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  padding: 3px;
+  border: none;
+  border-radius: 50%;
+  color: #f7efe6;
+  background: conic-gradient(#e5b526 var(--scroll-progress), rgba(247, 239, 230, 0.28) var(--scroll-progress));
+  box-shadow: 0 12px 28px rgba(26, 22, 20, 0.22);
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.scroll-top-button::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: #1a1614;
+}
+
+.scroll-top-button span {
+  position: relative;
+  z-index: 1;
+  font-size: 25px;
+  line-height: 1;
+  transition: transform 0.35s ease;
+}
+
+.scroll-top-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 18px 34px rgba(26, 22, 20, 0.3);
+}
+
+.scroll-top-button:hover span {
+  transform: translateY(-3px);
+}
+
 .badge-tag {
-  color: #e1a971;
+  color: #090909;
   font-size: 13px;
   font-weight: 700;
-  background: rgba(238, 237, 233, 0.79);
+  background: rgba(197, 163, 94, 0.79);
   letter-spacing: 1.5px;
   border-radius: 6px;
  padding:2px 10px;
@@ -522,6 +567,108 @@ background-size: cover;  background-size: cover;
   box-shadow: 0 15px 35px rgba(184,134,84,0.25);
 }
 
+.operations-section {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 70px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 120px 40px;
+  background: transparent;
+}
+
+.operations-images {
+  order: 1;
+}
+
+.operations-content {
+  order: 2;
+}
+
+.operations-content h2 {
+  max-width: 620px;
+  margin: 0;
+  font-size: 46px;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+.operations-content > p {
+  max-width: 510px;
+  margin: 22px 0 36px;
+  color: #665c58;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.operations-list {
+  display: grid;
+  gap: 18px;
+}
+
+.operations-list > div {
+  display: grid;
+  grid-template-columns: 34px 100px 1fr;
+  gap: 14px;
+  align-items: baseline;
+  padding-top: 16px;
+  border-top: 1px solid #eae2d6;
+}
+
+.operations-list span {
+  color: #b88654;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.operations-list strong {
+  font-size: 15px;
+}
+
+.operations-list small {
+  color: #665c58;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.operations-images {
+  position: relative;
+  min-height: 530px;
+}
+
+.operations-images img {
+  position: absolute;
+  display: block;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 24px 50px rgba(26, 22, 20, 0.16);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+.operations-image-main {
+  inset: 0 16% 0 0;
+  width: 84%;
+  height: 100%;
+}
+
+.operations-image-small {
+  right: 0;
+  bottom: 28px;
+  width: 42%;
+  height: 48%;
+  border: 10px solid #fff;
+}
+
+.operations-images:hover .operations-image-main {
+  transform: translate(-6px, -6px) scale(1.015);
+}
+
+.operations-images:hover .operations-image-small {
+  transform: translate(6px, 6px) scale(1.04);
+  box-shadow: 0 30px 58px rgba(26, 22, 20, 0.22);
+}
+
 .mini-avatars {
   font-size: 24px;
   animation: bounceSlow 3s ease-in-out infinite;
@@ -827,6 +974,17 @@ background-size: cover;  background-size: cover;
     padding: 80px 28px;
   }
 
+  .operations-section {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 90px 28px;
+  }
+
+  .operations-images,
+  .operations-content {
+    order: initial;
+  }
+
   .consultation-box {
     grid-template-columns: 1fr;
   }
@@ -888,6 +1046,25 @@ background-size: cover;  background-size: cover;
 
   .stats-section {
     padding: 68px 20px;
+  }
+
+  .operations-section {
+    gap: 36px;
+    padding: 72px 20px;
+  }
+
+  .operations-content h2 {
+    font-size: 34px;
+    letter-spacing: -0.5px;
+  }
+
+  .operations-images {
+    min-height: 390px;
+  }
+
+  .operations-list > div {
+    grid-template-columns: 30px 82px 1fr;
+    gap: 10px;
   }
 
   .section-header,

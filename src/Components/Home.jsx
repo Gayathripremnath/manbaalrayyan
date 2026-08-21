@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Home.css';
 import img1 from '../assets/img1.png';
 import img2 from '../assets/img2.png';
@@ -17,6 +17,8 @@ const serviceImages = [
 ];
 
 export default function Home() {
+  const scrollTopButtonRef = useRef(null);
+
   useEffect(() => {
     const revealItems = document.querySelectorAll('[data-reveal]');
     const observer = new IntersectionObserver((entries, currentObserver) => {
@@ -32,8 +34,41 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    let animationFrameId = null;
+
+    const updateScrollProgress = () => {
+      if (animationFrameId !== null) return;
+
+      animationFrameId = window.requestAnimationFrame(() => {
+        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
+        scrollTopButtonRef.current?.style.setProperty('--scroll-progress', `${Math.min(100, Math.max(0, progress))}%`);
+        animationFrameId = null;
+      });
+    };
+
+    updateScrollProgress();
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+    window.addEventListener('resize', updateScrollProgress);
+    return () => {
+      window.removeEventListener('scroll', updateScrollProgress);
+      window.removeEventListener('resize', updateScrollProgress);
+      if (animationFrameId !== null) window.cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
   return (
     <div className="home-wrapper">
+      <button
+        className="scroll-top-button"
+        ref={scrollTopButtonRef}
+        type="button"
+        aria-label="Scroll to top"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >
+        <span aria-hidden="true">↑</span>
+      </button>
       <section className="hero-section">
         <div className="hero-content">
           <div className="hero-copy">
@@ -110,35 +145,20 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="stats-section scroll-reveal" data-reveal>
-        <div className="stats-container">
-          <div className="stats-header-text">
-            <div className="badge-tag">// WHY MANBA AL RAYYAN</div>
-            <h2>Steady service. Clear communication. Business you can count on.</h2>
+      <section className="operations-section scroll-reveal" data-reveal>
+        <div className="operations-content">
+          <div className="badge-tag">// HOW WE WORK</div>
+          <h2>From requirement to delivery, handled with clarity.</h2>
+          <p>We listen to the requirement, source the right solution, and coordinate the details that keep your business moving.</p>
+          <div className="operations-list">
+            <div><span>01</span><strong>Understand</strong><small>We start with your exact business requirement.</small></div>
+            <div><span>02</span><strong>Source</strong><small>We connect you with practical products and services.</small></div>
+            <div><span>03</span><strong>Deliver</strong><small>We keep communication clear through every step.</small></div>
           </div>
-          <div className="stats-grid">
-            <div className="stat-card light scroll-reveal" data-reveal>
-              <div className="mini-avatars">TR</div>
-              <span className="stat-label">Commercial focus</span>
-              <h3 className="stat-number">01</h3>
-              <p>One accountable partner for trading and services.</p>
-            </div>
-            <div className="stat-card dark scroll-reveal" data-reveal>
-              <span className="stat-label">Our approach</span>
-              <h3 className="stat-number">Direct</h3>
-              <p>Fast responses, straightforward terms, and no unnecessary complexity.</p>
-            </div>
-            <div className="stat-card light scroll-reveal" data-reveal>
-              <span className="stat-label">Our standard</span>
-              <h3 className="stat-number">Ready</h3>
-              <p>Prepared to support routine requirements and new opportunities.</p>
-            </div>
-            <div className="stat-card image-bg scroll-reveal" data-reveal>
-              <span className="stat-label">Our promise</span>
-              <h3 className="stat-number">Trust</h3>
-              <p>Relationships built for repeat business and shared growth.</p>
-            </div>
-          </div>
+        </div>
+        <div className="operations-images">
+          <img className="operations-image-main" src={img5} alt="Manba Al Rayyan regional trading support" loading="lazy" />
+          <img className="operations-image-small" src={img6} alt="Manba Al Rayyan business service delivery" loading="lazy" />
         </div>
       </section>
 

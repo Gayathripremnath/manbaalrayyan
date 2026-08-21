@@ -28,7 +28,7 @@
   gap: 34px;
   background: rgba(255, 255, 255, 0.71);
   border: none;
-  border-radius: 9px;
+  border-radius: 20px;
   box-shadow: 0 12px 30px rgba(8, 31, 48, 0.12);
 }
 
@@ -109,8 +109,8 @@
   gap: 10px;
   padding: 13px 17px;
   color: #fff;
-  background: #087e9a;
-  border-radius: 4px;
+  background: #041a3b;
+  border-radius: 40px;
   text-decoration: none;
   font-size: 12px;
   font-weight: 700;

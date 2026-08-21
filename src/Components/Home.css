@@ -22,10 +22,11 @@
 /* --- Hero Section & Animations --- */
 .hero-section {
   /* background: linear-gradient(135deg, #fdfcfb 0%, #f6af8c 100%); */
-background:
+/* background:
     linear-gradient(rgba(239, 215, 215, 0.3), rgba(214, 164, 76, 0.3)),
     url('https://martsaqua.com/wp-content/uploads/2019/02/slider1.jpg')
-    no-repeat center center;
+    no-repeat center center; */
+    background: linear-gradient(rgba(239,215,215,0.3),rgba(214,164,76,0.3)),url("https://martsaqua.com/wp-content/uploads/2019/02/slider2.jpg")no-repeat center center;
 background-size: cover;  background-size: cover;
   color: #fff;
   padding: 180px 40px 90px;

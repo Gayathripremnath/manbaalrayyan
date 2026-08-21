@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+.nex-navbar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  padding: 18px 32px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  /* background: rgba(255, 255, 255, 0.96); */
+  transition: padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  animation: slideDownNav 0.7s ease-out forwards;
+}
+
+.nex-navbar.scrolled {
+  padding: 12px 32px;
+  /* background: rgba(8, 31, 48, 0.94); */
+  /* box-shadow: 0 8px 28px rgba(8, 31, 48, 0.18); */
+  backdrop-filter: blur(14px);
+}
+
+.nav-container {
+  max-width: 1380px;
+  min-height: 68px;
+  margin: 0 auto;
+  padding: 8px 12px 8px 22px;
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  background: rgba(255, 255, 255, 0.71);
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 12px 30px rgba(8, 31, 48, 0.12);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  flex: 0 1 390px;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.logo-img {
+  display: block;
+  width: min(100%, 390px);
+  max-height: 58px;
+  object-fit: contain;
+  object-position: left center;
+  transition: transform 0.25s ease;
+}
+
+.nav-logo:hover .logo-img { transform: translateY(-1px); }
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: clamp(18px, 2.3vw, 34px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  position: relative;
+  display: block;
+  padding: 8px 0;
+  color: #173247;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: #e5b526;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link.active { color: #087e9a; }
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 0 0 auto;
+}
+
+.quote-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 17px;
+  color: #fff;
+  background: #087e9a;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.quote-btn:hover { background: #075c73; transform: translateY(-2px); }
+.quote-btn span { font-size: 16px; line-height: 0; }
+
+.menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 11px 9px;
+  border: 1px solid #d7e0e3;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 2px;
+  margin: 5px 0;
+  background: #173247;
+  transition: transform 0.2s ease;
+}
+
+.menu-open .menu-toggle span:first-child { transform: translateY(3.5px) rotate(45deg); }
+.menu-open .menu-toggle span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+
+@keyframes slideDownNav {
+  from { opacity: 0; transform: translateY(-18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1050px) {
+  .nex-navbar,
+  .nex-navbar.scrolled { padding: 12px 18px; }
+  .nav-container { gap: 18px; padding-left: 16px; }
+  .nav-logo { flex-basis: 320px; }
+  .logo-img { max-height: 50px; }
+  .nav-menu { gap: 18px; }
+  .quote-btn { padding-inline: 13px; }
+}
+
+@media (max-width: 780px) {
+  .nav-container { position: relative; }
+  .nav-logo { flex: 1 1 auto; }
+  .logo-img { width: min(100%, 315px); max-height: 48px; }
+  .quote-btn { display: none; }
+  .menu-toggle { display: block; }
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 18px;
+    background: #fff;
+    border: 1px solid #d7e0e3;
+    border-radius: 4px;
+    box-shadow: 0 14px 24px rgba(8, 31, 48, 0.14);
+  }
+  .nav-menu.is-open { display: flex; }
+  .nav-link { padding: 13px 0; }
+}

@@ -259,6 +259,7 @@ export default function Home() {
     <img className="operations-image-small" src={img6} alt="" />
   </div>
 </section>
+
       <section className="consultation-section scroll-reveal" id="contact" data-reveal>
         <h2>Have a requirement? Let&apos;s find the right way forward.</h2>
         <div className="consultation-box">

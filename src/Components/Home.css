@@ -185,7 +185,7 @@
 }
 
 .hero-content {
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
   display: flex;
   /* justify-content: space-between; */
@@ -316,7 +316,7 @@
 }
 
 .client-banner {
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 90px auto 0;
   padding-top: 40px;
   border-top: none;
@@ -359,7 +359,7 @@
 
 /* --- Services Overview Section --- */
 .services-section {
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 2px 40px;
   animation: sectionReveal 1s ease-out;
@@ -470,7 +470,7 @@
 }
 
 .showcase-section {
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 20px 40px 130px;
 }
@@ -585,7 +585,7 @@
 }
 
 .stats-container {
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -913,7 +913,7 @@
   grid-template-columns: 0.9fr 1.1fr;
   gap: 70px;
   align-items: center;
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 120px 40px;
   background: transparent;
@@ -1048,9 +1048,9 @@
 
 /* --- Consultation Form Section --- */
 .consultation-section {
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 130px 40px;
+  padding: -10px 40px;
   text-align: center;
 }
 
@@ -1091,7 +1091,7 @@
 }
 
 .form-container p {
-  color: #665c58;
+  color: #105359;
   font-size: 14px;
   margin-bottom: 30px;
 }
@@ -1142,7 +1142,7 @@
 }
 
 .info-container {
-  background: linear-gradient(135deg, #2c2420, #1a1614);
+  background: linear-gradient(135deg, #0b3e81, #1a1614);
   color: #fff;
   padding: 60px;
   display: flex;
@@ -1728,7 +1728,7 @@
 }
 
 .about-section {
-  width: min(100%, 1390px);
+  width: min(100%, 1300px);
   margin: 0 auto;
   padding: 82px 28px;
   display: grid;

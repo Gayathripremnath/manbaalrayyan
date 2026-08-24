@@ -19,7 +19,7 @@ const serviceImages = [
 const heroSlides = [
   { image: img1, alt: 'Products prepared for business supply' },
   { image: img2, alt: 'Trading and sourcing support' },
-  { image: img3, alt: 'Business operations and service delivery' },
+  { image: img6, alt: 'Business operations and service delivery' },
 ];
 
 export default function Home() {

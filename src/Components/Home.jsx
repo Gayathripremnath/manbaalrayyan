@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import './Home.css';
 import img1 from '../assets/img1.png';
 import img2 from '../assets/img2.png';
@@ -6,14 +7,17 @@ import img3 from '../assets/img3.png';
 import img4 from '../assets/img4.png';
 import img5 from '../assets/img5.png';
 import img6 from '../assets/img6.png';
+import heroVideo from '../assets/hero.mp4';
 
-const serviceImages = [
-  { image: img1, label: 'Supply solutions', title: 'Products that keep teams moving.' },
-  { image: img2, label: 'Trading support', title: 'Reliable sourcing for every requirement.' },
-  { image: img3, label: 'Business operations', title: 'Practical support behind the scenes.' },
-  { image: img4, label: 'Project supply', title: 'Coordinated with care from start to finish.' },
-  { image: img5, label: 'Regional reach', title: 'Connecting businesses across markets.' },
-  { image: img6, label: 'Long-term value', title: 'Built for dependable partnerships.' },
+const selectedProjects = [
+  { image: img5, country: 'UAE', title: 'Marina 101', className: 'selected-project--marina' },
+  { image: img1, country: 'UAE', title: 'Atria', className: 'selected-project--atria' },
+  { image: img6, country: 'UAE', title: 'Sky Hills Residences', className: 'selected-project--sky' },
+  { image: img4, country: 'UAE', title: 'Mohammad Bin Rashid Library', className: 'selected-project--library' },
+  { image: img3, country: 'UAE', title: 'Verde', className: 'selected-project--verde' },
+  { image: img2, country: 'UAE', title: 'The Address Hotel', className: 'selected-project--address' },
+  { image: img3, country: 'Bahrain', title: 'Al Ezzel Power Plant', className: 'selected-project--power' },
+  { image: img6, country: 'Qatar', title: 'Anti Doping Lab', className: 'selected-project--lab' },
 ];
 
 const heroSlides = [
@@ -26,6 +30,7 @@ export default function Home() {
   const scrollTopButtonRef = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isSliderPaused, setIsSliderPaused] = useState(false);
+  const [activeAboutTab, setActiveAboutTab] = useState('vision');
 
   useEffect(() => {
     if (isSliderPaused) return undefined;
@@ -92,47 +97,21 @@ export default function Home() {
         onMouseEnter={() => setIsSliderPaused(true)}
         onMouseLeave={() => setIsSliderPaused(false)}
       >
-        <div className="hero-slider" aria-label="Featured images" aria-live="polite">
-          {heroSlides.map((slide, index) => (
-            <img
-              className={`hero-slide ${index === activeSlide ? 'is-active' : ''}`}
-              src={slide.image}
-              alt={slide.alt}
-              key={slide.image}
-              aria-hidden={index !== activeSlide}
-            />
-          ))}
-          <div className="hero-slider-controls">
-            <button
-              type="button"
-              className="hero-slider-arrow"
-              aria-label="Previous slide"
-              onClick={() => setActiveSlide((activeSlide - 1 + heroSlides.length) % heroSlides.length)}
-            >
-              <span aria-hidden="true">←</span>
-            </button>
-            <div className="hero-slider-dots">
-              {heroSlides.map((slide, index) => (
-                <button
-                  type="button"
-                  className={`hero-slider-dot ${index === activeSlide ? 'is-active' : ''}`}
-                  aria-label={`Show slide ${index + 1}`}
-                  aria-current={index === activeSlide ? 'true' : undefined}
-                  onClick={() => setActiveSlide(index)}
-                  key={slide.image}
-                />
-              ))}
-            </div>
-            <button
-              type="button"
-              className="hero-slider-arrow"
-              aria-label="Next slide"
-              onClick={() => setActiveSlide((activeSlide + 1) % heroSlides.length)}
-            >
-              <span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </div>
+        <div className="hero-video">
+  <video
+    className="hero-video-bg"
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="auto"
+  >
+    <source src={heroVideo} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div className="hero-video-overlay"></div>
+</div>
         <div className="hero-content">
           <div className="hero-copy">
             <div className="badge-tag">// MANBA AL RAYYAN LLC</div>
@@ -159,68 +138,440 @@ export default function Home() {
         </div> */}
       </section>
 
-      <section className="about-section scroll-reveal" id="about" aria-labelledby="about-title" data-reveal>
-        <div className="about-copy">
-          <div className="about-eyebrow">Engineering pure excellence</div>
-          <h2 id="about-title">Manba Al Rayyan Trading &amp; Services LLC</h2>
-          <p>Established with a team of experienced professionals in the field of Design, Engineering, Construction and Services. The company is at the heart of the Muscat city and is focused to deliver its clients and partners a complete commitment on their needs.</p>
-          <p><strong>Leadership is the key to success</strong> and MARTS, lead by a team of professional experts.</p>
-          <div className="about-highlight">&quot;We have our major business into desalination, water and waste water treatment.&quot;</div>
-          <p>We have vast experience in the filed of desalination, water and waste water treatment. MARTS, emerges as a perfect solution provider for any source of water at any form.</p>
-          <a className="about-button" href="#contact">Read Details <span aria-hidden="true">↗</span></a>
+     {/* =========================
+    ABOUT US SECTION
+========================= */}
+<motion.section
+  className="about-modern-section"
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: 'easeOut' }}
+  viewport={{ once: true, margin: '-100px' }}
+>
+
+  {/* LEFT IMAGE COLLAGE */}
+  <motion.div className="about-modern-images">
+
+    <motion.div
+      className="about-circle-text"
+      animate={{ rotate: 360 }}
+      transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+    >
+      <svg viewBox="0 0 200 200">
+        <defs>
+          <path
+            id="circlePath"
+            d="M 100,100
+               m -72,0
+               a 72,72 0 1,1 144,0
+               a 72,72 0 1,1 -144,0"
+          />
+        </defs>
+
+        <text>
+          <textPath href="#circlePath">
+            ABOUT OUR COMPANY • ABOUT OUR COMPANY •
+          </textPath>
+        </text>
+      </svg>
+
+      <div className="about-circle-center"></div>
+    </motion.div>
+
+    <motion.div
+      className="about-image image-one"
+      initial={{ opacity: 0, x: -30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.7, delay: 0.1 }}
+      viewport={{ once: true }}
+      whileHover={{ scale: 1.05 }}
+    >
+      <img src={img1} alt="Industrial equipment" />
+    </motion.div>
+
+    <motion.div
+      className="about-image image-two"
+      initial={{ opacity: 0, x: 30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.7, delay: 0.2 }}
+      viewport={{ once: true }}
+      whileHover={{ scale: 1.05 }}
+    >
+      <img src={img2} alt="Engineering equipment" />
+    </motion.div>
+
+    <motion.div
+      className="about-image image-three"
+      initial={{ opacity: 0, x: -30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.7, delay: 0.3 }}
+      viewport={{ once: true }}
+      whileHover={{ scale: 1.05 }}
+    >
+      <img src={img3} alt="Industrial facility" />
+    </motion.div>
+
+    <motion.div
+      className="about-image image-four"
+      initial={{ opacity: 0, x: 30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.7, delay: 0.4 }}
+      viewport={{ once: true }}
+      whileHover={{ scale: 1.05 }}
+    >
+      <img src={img4} alt="Water treatment equipment" />
+    </motion.div>
+
+  </motion.div>
+
+
+  {/* RIGHT CONTENT */}
+  <motion.div className="about-modern-content">
+
+    <motion.div
+      className="about-section-label"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      <span></span>
+      <strong>ABOUT US</strong>
+    </motion.div>
+
+    <motion.h2
+      className="about-modern-title"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: 0.1 }}
+      viewport={{ once: true }}
+    >
+      About Manba Al Rayyan
+    </motion.h2>
+
+    <motion.p
+      className="about-modern-description"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: 0.15 }}
+      viewport={{ once: true }}
+    >
+      Our experienced team, reliable supplier network and commitment
+      to quality enable us to provide dependable products and practical
+      solutions for businesses across regional markets.
+    </motion.p>
+
+    <motion.p
+      className="about-modern-description"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: 0.2 }}
+      viewport={{ once: true }}
+    >
+      We support organisations through trading, procurement, sourcing
+      and coordinated services, delivering solutions that are built
+      around their exact requirements.
+    </motion.p>
+
+
+    {/* STATS */}
+    <motion.div
+      className="about-stats"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.25 }}
+      viewport={{ once: true }}
+    >
+
+      <motion.div
+        className="about-stat-card"
+        whileHover={{ y: -8 }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="stat-icon">
+          ✓
         </div>
-        <div className="about-image-wrap">
-          <img src={img4} alt="Water treatment equipment and industrial systems" loading="lazy" />
+
+        <div>
+          <strong>50+</strong>
+          <span>Projects Supported</span>
         </div>
-      </section>
+      </motion.div>
+
+      <motion.div
+        className="about-stat-card"
+        whileHover={{ y: -8 }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="stat-icon">
+          ◉
+        </div>
+
+        <div>
+          <strong>$10m</strong>
+          <span>Capital Invested</span>
+        </div>
+      </motion.div>
+
+    </motion.div>
+
+
+    {/* VISION / MISSION */}
+    <motion.div
+      className="about-tabs"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.3 }}
+      viewport={{ once: true }}
+    >
+
+      <motion.button
+        className={`about-tab ${activeAboutTab === 'vision' ? 'active' : ''}`}
+        onClick={() => setActiveAboutTab('vision')}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        Vision
+      </motion.button>
+
+      <motion.button
+        className={`about-tab ${activeAboutTab === 'mission' ? 'active' : ''}`}
+        onClick={() => setActiveAboutTab('mission')}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        Mission
+      </motion.button>
+
+    </motion.div>
+
+    <motion.div
+      className="about-tab-content"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      key={activeAboutTab}
+    >
+      <p>
+        {activeAboutTab === 'vision' ? (
+          <>
+            Our vision is to become a trusted partner for trading,
+            sourcing and business solutions by maintaining high standards
+            of quality, reliability and customer satisfaction.
+          </>
+        ) : (
+          <>
+            Our mission is to deliver excellence through reliable sourcing, quality products, and
+            dependable partnerships. We commit to supporting our clients' success with practical
+            solutions and long-term value creation across all GCC markets.
+          </>
+        )}
+      </p>
+    </motion.div>
+
+
+    {/* BOTTOM */}
+    <motion.div
+      className="about-bottom"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.35 }}
+      viewport={{ once: true }}
+    >
+
+      <motion.div
+        className="about-person"
+        whileHover={{ scale: 1.05 }}
+      >
+        <div className="person-avatar">
+          <span>👨🏻‍💼</span>
+        </div>
+
+        <div>
+          <small>Managing Director</small>
+          <strong>Manba Al Rayyan</strong>
+        </div>
+      </motion.div>
+
+      <motion.a
+        href="#contact"
+        className="about-read-btn"
+        whileHover={{ scale: 1.05, y: -4 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        Read More
+        <span>↗</span>
+      </motion.a>
+
+    </motion.div>
+
+  </motion.div>
+
+</motion.section>
 
      
 
-      <section className="showcase-section scroll-reveal" aria-labelledby="showcase-title" data-reveal>
-        <div className="showcase-heading">
-          <div className="badge-tag">// OUR CAPABILITIES</div>
-          <h2 id="showcase-title">A closer look at how we support business.</h2>
-          <p>From product supply to coordinated operations, our work is shaped around practical outcomes and dependable delivery.</p>
-        </div>
-        <div className="showcase-grid">
-          {serviceImages.map((item, index) => (
-            <article className={`showcase-card showcase-card-${index + 1} scroll-reveal`} data-reveal key={item.image}>
-              <img src={item.image} alt={item.title} loading="lazy" />
-              <div className="showcase-overlay">
-                <span>{item.label}</span>
-                <h3>{item.title}</h3>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-       <section className="services-section scroll-reveal" id="services" data-reveal>
-        <div className="section-header">
+       <motion.section
+        className="services-section scroll-reveal"
+        id="services"
+        data-reveal
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        viewport={{ once: true, margin: '-100px' }}
+      >
+        <motion.div
+          className="section-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          viewport={{ once: true }}
+        >
           <div className="badge-tag">// WHAT WE DO</div>
-          <h2>Practical solutions for the way business works today.</h2>
-          <p>From sourcing the right products to keeping day-to-day operations moving, we bring a responsive, detail-focused approach to every engagement.</p>
-        </div>
-        <div className="services-grid">
-          <div className="service-card scroll-reveal" data-reveal>
-            <div className="service-icon">01</div>
-            <h3>General Trading</h3>
-            <p>Quality products sourced through dependable supplier relationships and clear commercial communication.</p>
+          <h2>Four pillars of service across the GCC and MENA region.</h2>
+          <p>From product specification to final commissioning — we deliver every stage of an electrical project under one roof.</p>
+        </motion.div>
+        <motion.div
+          className="services-grid"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className="service-card scroll-reveal"
+            data-reveal
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)' }}
+          >
+            <div className="service-card-image">
+              <img src={img1} alt="Supply & Trading" />
+              <div className="service-card-number">01</div>
+            </div>
+            <div className="service-card-content">
+              <h3>Supply &amp; Trading</h3>
+              <p>Industrial and oilfield equipment, electrical and mechanical spares, and authorized Linkk &amp; Megaduct busduct trunking — backed by full GCC and MENA inventory.</p>
+              <motion.a href="#" className="learn-more-link" whileHover={{ x: 5 }}>
+                Learn more <span>→</span>
+              </motion.a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="service-card scroll-reveal"
+            data-reveal
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)' }}
+          >
+            <div className="service-card-image">
+              <img src={img2} alt="Testing & Commissioning" />
+              <div className="service-card-number">02</div>
+            </div>
+            <div className="service-card-content">
+              <h3>Testing &amp; Commissioning</h3>
+              <p>On-shore and off-shore electrical and mechanical commissioning for oil, gas and utility projects.</p>
+              <motion.a href="#" className="learn-more-link" whileHover={{ x: 5 }}>
+                Learn more <span>→</span>
+              </motion.a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="service-card scroll-reveal"
+            data-reveal
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)' }}
+          >
+            <div className="service-card-image">
+              <img src={img3} alt="Engineering Services" />
+              <div className="service-card-number">03</div>
+            </div>
+            <div className="service-card-content">
+              <h3>Engineering Services</h3>
+              <p>Specification, layout and custom engineering tailored to commercial and industrial installations.</p>
+              <motion.a href="#" className="learn-more-link" whileHover={{ x: 5 }}>
+                Learn more <span>→</span>
+              </motion.a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="service-card scroll-reveal"
+            data-reveal
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)' }}
+          >
+            <div className="service-card-image">
+              <img src={img4} alt="Installation & Contracting" />
+              <div className="service-card-number">04</div>
+            </div>
+            <div className="service-card-content">
+              <h3>Installation &amp; Contracting</h3>
+              <p>Turn-key contracting from delivery through installation and final handover, across the GCC and MENA region.</p>
+              <motion.a href="#" className="learn-more-link" whileHover={{ x: 5 }}>
+                Learn more <span>→</span>
+              </motion.a>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          className="services-footer"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          <motion.a href="#" className="all-services-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            All services <span>→</span>
+          </motion.a>
+        </motion.div>
+      </motion.section>
+
+      <section className="selected-work-section" aria-labelledby="selected-work-title">
+        <motion.div
+          className="selected-work-heading"
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, ease: 'easeOut' }}
+          viewport={{ once: true, margin: '-80px' }}
+        >
+          <div className="selected-work-label">Selected work</div>
+          <div className="selected-work-title-row">
+            <h2 id="selected-work-title">Trusted on landmark<br />projects.</h2>
+            <a href="#contact" className="selected-work-link">See all projects <span aria-hidden="true">→</span></a>
           </div>
-          <div className="service-card scroll-reveal" data-reveal>
-            <div className="service-icon">02</div>
-            <h3>Procurement &amp; Sourcing</h3>
-            <p>Practical procurement support that helps teams find the right fit, manage requirements, and stay on schedule.</p>
-          </div>
-          <div className="service-card scroll-reveal" data-reveal>
-            <div className="service-icon">03</div>
-            <h3>Logistics Coordination</h3>
-            <p>Organised coordination from order to delivery, helping your supply chain stay visible and reliable.</p>
-          </div>
-          <div className="service-card scroll-reveal" data-reveal>
-            <div className="service-icon">04</div>
-            <h3>Business Services</h3>
-            <p>Flexible operational support tailored to the needs of offices, projects, and growing enterprises.</p>
-          </div>
+        </motion.div>
+
+        <div className="selected-work-grid">
+          {selectedProjects.map((project, index) => (
+            <motion.article
+              className={`selected-project ${project.className}`}
+              key={`${project.country}-${project.title}`}
+              initial={{ opacity: 0, y: 34, scale: 0.985 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.6, delay: index * 0.055, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, amount: 0.15 }}
+            >
+              <img src={project.image} alt={project.title} loading="lazy" />
+              <div className="selected-project-overlay">
+                <span>{project.country}</span>
+                <h3>{project.title}</h3>
+              </div>
+            </motion.article>
+          ))}
         </div>
       </section>
 

@@ -30,7 +30,6 @@ export default function App() {
           <Route path="/portfolio" element={<GenericPage title="Portfolio" />} />
           <Route path="/pricing" element={<GenericPage title="Pricing" />} />
           <Route path="/shop" element={<GenericPage title="Shop" />} />
-          <Route path="/about" element={<GenericPage title="About Us" />} />
           <Route path="/services" element={<GenericPage title="Services" />} />
           <Route path="/contact" element={<GenericPage title="Contact Us" />} /> */}
         </Routes>

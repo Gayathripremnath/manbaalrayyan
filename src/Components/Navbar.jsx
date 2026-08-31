@@ -1,44 +1,65 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Globe } from 'lucide-react';
 import './Navbar.css';
+
 import logo from '../assets/Logo.png';
+
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <nav className={`nex-navbar ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
-      <div className="nav-container">
-        <a href="#home" className="nav-logo" aria-label="Manba Al Rayyan home">
-          <img src={logo} alt="Manba Al Rayyan Trading & Services LLC" className="logo-img" />
-        </a>
+    <header className="navbar">
+      <div className="navbar-container">
 
-        <ul className={`nav-menu ${menuOpen ? 'is-open' : ''}`}>
-          <li className="nav-item"><a href="#home" className="nav-link active" onClick={() => setMenuOpen(false)}>Home</a></li>
-          <li className="nav-item"><a href="#services" className="nav-link" onClick={() => setMenuOpen(false)}>Services</a></li>
-          <li className="nav-item"><a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About us</a></li>
-          <li className="nav-item"><a href="#contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</a></li>
-        </ul>
+        {/* Logo */}
+        <Link to="/" className="navbar-logo">
+          <img src={logo} alt="Al Sanaya Technical Equipment" />
+        </Link>
 
-        <div className="nav-actions">
-          <a href="#contact" className="quote-btn">Request a quote <span>↗</span></a>
-          <button className="menu-toggle" type="button" aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
-            <span></span>
-            <span></span>
+        {/* Navigation */}
+        <nav className="navbar-menu">
+          <Link to="/" className="nav-link active">
+            Home
+          </Link>
+
+          <Link to="/about" className="nav-link">
+            About
+          </Link>
+
+          <Link to="/services" className="nav-link">
+            Services
+          </Link>
+
+          <Link to="/products" className="nav-link">
+            Products
+          </Link>
+
+          <Link to="/projects" className="nav-link">
+            Projects
+          </Link>
+
+          <Link to="/blog" className="nav-link">
+            Blog
+          </Link>
+
+          <Link to="/contact" className="nav-link">
+            Contact
+          </Link>
+        </nav>
+
+        {/* Right side */}
+        <div className="navbar-actions">
+
+          <button className="language-btn" aria-label="Language">
+            <Globe size={19} strokeWidth={1.8} />
           </button>
+
+          <Link to="/contact" className="quote-btn">
+            Get a Quote
+          </Link>
+
         </div>
+
       </div>
-    </nav>
+    </header>
   );
 }

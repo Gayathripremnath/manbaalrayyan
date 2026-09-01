@@ -4,67 +4,69 @@ import logo from '../assets/Logo.png';
 
 export default function Footer() {
   return (
-    <footer className="nex-footer">
-      <div className="footer-container">
-        {/* Column 1: Quick Links */}
-        <div className="footer-col">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="#blog">» Blog</a></li>
-            <li><a href="#portfolio">» Portfolio</a></li>
-            <li><a href="#pricing">» Pricing</a></li>
-            <li><a href="#shop">» Shop</a></li>
-          </ul>
-        </div>
+    <footer className="footer">
 
-        {/* Column 2: Useful Links */}
-        <div className="footer-col">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#home">» Home</a></li>
-            <li><a href="#about">» About Us</a></li>
-            <li><a href="#team">» Team</a></li>
-            <li><a href="#faq">» Faq</a></li>
-            <li><a href="#contact">» Contact Us</a></li>
-            <li><a href="#history">» Our History</a></li>
-            <li><a href="#services">» Services</a></li>
-            <li><a href="#coming">» Coming Soon</a></li>
-          </ul>
-        </div>
+      <div className="footer-main">
 
-        {/* Column 3: Contact */}
-        <div className="footer-col contact-col">
-          <h4>Contact</h4>
-          <p><span>📍</span> 17504 Carlton Cuevas Rd Gulfport, MS, 39503</p>
-          <p><span>✉️</span> info@example.com</p>
-          <p><span>📞</span> 001123456789</p>
-        </div>
+        {/* LEFT */}
+        <div className="footer-brand">
+          <img src={logo} alt="Manba Al Rayyan" className="footer-logo" />
 
-        {/* Column 4: Brand & Socials */}
-        <div className="footer-col brand-col">
-          <div className="footer-logo">
-            <img src={logo} alt="Manba Al Rayyan Trading & Services LLC" />
-          </div>
-          <p className="footer-desc">Delivering strategic business solutions with trusted expertise, innovation, and measurable results.</p>
-          <div className="social-icons">
-            <a href="#globe" aria-label="Website">🌐</a>
-            <a href="#linkedin" aria-label="LinkedIn">💼</a>
-            <a href="#facebook" aria-label="Facebook">📘</a>
+          <p>
+            Trading and contracting partner for the supply, testing &amp;
+            commissioning of electrical and mechanical equipment across the
+            GCC and MENA region.
+          </p>
+
+          <div className="footer-tags">
+            <span>LINKK</span>
+            <span>MEGADUCT</span>
           </div>
         </div>
+
+        {/* QUICK LINKS */}
+        <div className="footer-links">
+          <h3>QUICK LINKS</h3>
+
+          <a href="/">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#products">Products</a>
+          <a href="#projects">Projects</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        {/* CONTACT */}
+        <div className="footer-contact">
+          <h3>CONTACT</h3>
+
+          <p>
+            Garhoud Star Building<br />
+            P.O. Box 46686<br />
+            Dubai, United Arab Emirates
+          </p>
+
+          <a href="tel:+97148352303">+971 4 835 2303</a>
+          <a href="mailto:info@sanayate.com">info@sanayate.com</a>
+        </div>
+
       </div>
 
-      {/* Bottom Sub-footer */}
+      {/* BOTTOM */}
       <div className="footer-bottom">
-        <div className="footer-bottom-container">
-          <p>Copyright © 2026 All Rights Reserved.</p>
-          <div className="footer-legal">
-            <a href="#privacy">Privacy Policy</a> / 
-            <a href="#tc">T&C</a> / 
-            <a href="#help">Help</a>
-          </div>
+
+        <p>
+          © 2026 Genova technologies Pvt Ltd.
+        </p>
+
+        <div className="footer-legal">
+          <a href="#terms">Terms</a>
+          <a href="#privacy">Privacy</a>
         </div>
+
       </div>
+
     </footer>
   );
 }

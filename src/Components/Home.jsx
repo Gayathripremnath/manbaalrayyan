@@ -31,6 +31,7 @@ export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isSliderPaused, setIsSliderPaused] = useState(false);
   const [activeAboutTab, setActiveAboutTab] = useState('vision');
+  const [activeClientSlide, setActiveClientSlide] = useState(0);
 
   useEffect(() => {
     if (isSliderPaused) return undefined;
@@ -41,6 +42,14 @@ export default function Home() {
 
     return () => window.clearInterval(sliderTimer);
   }, [isSliderPaused]);
+
+  useEffect(() => {
+    const clientSliderTimer = window.setInterval(() => {
+      setActiveClientSlide((currentSlide) => (currentSlide + 1) % 6);
+    }, 3500);
+
+    return () => window.clearInterval(clientSliderTimer);
+  }, []);
 
   useEffect(() => {
     const revealItems = document.querySelectorAll('[data-reveal]');
@@ -178,49 +187,22 @@ export default function Home() {
       <div className="about-circle-center"></div>
     </motion.div>
 
-    <motion.div
-      className="about-image image-one"
-      initial={{ opacity: 0, x: -30 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.7, delay: 0.1 }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.05 }}
-    >
-      <img src={img1} alt="Industrial equipment" />
-    </motion.div>
+   <div className="about-image image-one">
+  <img src={img1} alt="Industrial equipment" />
+</div>
 
-    <motion.div
-      className="about-image image-two"
-      initial={{ opacity: 0, x: 30 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.7, delay: 0.2 }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.05 }}
-    >
-      <img src={img2} alt="Engineering equipment" />
-    </motion.div>
+     <div className="about-image image-two">
+    <img src={img2} alt="Engineering equipment" />
+  </div>
 
-    <motion.div
-      className="about-image image-three"
-      initial={{ opacity: 0, x: -30 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.7, delay: 0.3 }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.05 }}
-    >
-      <img src={img3} alt="Industrial facility" />
-    </motion.div>
+    <div className="about-image image-three">
+    <img src={img3} alt="Industrial facility" />
+  </div>
 
-    <motion.div
-      className="about-image image-four"
-      initial={{ opacity: 0, x: 30 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.7, delay: 0.4 }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.05 }}
-    >
-      <img src={img4} alt="Water treatment equipment" />
-    </motion.div>
+  {/* IMAGE 4 — CHANGE HERE */}
+  <div className="about-image image-four">
+    <img src={img4} alt="Water treatment equipment" />
+  </div>
 
   </motion.div>
 
@@ -575,56 +557,68 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="operations-section scroll-reveal" data-reveal>
-  <div className="operations-content">
-    <div className="badge-tag">// HOW WE WORK</div>
-    <h2>From requirement to delivery, handled with clarity.</h2>
-    <p>
-      We listen to the requirement, source the right solution,
-      and coordinate the details that keep your business moving.
-    </p>
+      <section className="clients-section" aria-labelledby="clients-title">
+        <motion.div
+          className="clients-inner"
+          initial={{ opacity: 0, y: 26 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, ease: 'easeOut' }}
+          viewport={{ once: true, margin: '-80px' }}
+        >
+          <div className="clients-label"><span aria-hidden="true" />Our clients</div>
+          <h2 id="clients-title">We approach each client with dedication at the core of every engagement,<br className="clients-title-break" /> achieving great successes.</h2>
 
-    <div className="operations-list">
-      <div>
-        <span>01</span>
-        <strong>Understand</strong>
-        <small>We start with your exact business requirement.</small>
-      </div>
+          <div className="clients-logos" aria-label="Clients we have worked with">
+            <div className="clients-logos-track" style={{ '--client-slide': activeClientSlide }}>
+              {[0, 1].map((set) => (
+                <React.Fragment key={set}>
+                  <div className="client-logo client-logo--adnoc" aria-label="ADNOC Offshore">
+                    <span className="adnoc-mark" aria-hidden="true">◒</span><span>ADNOC<br /><small>Offshore</small></span>
+                  </div>
+                  <div className="client-logo client-logo--npcc" aria-label="NPCC">NPCC</div>
+                  <div className="client-logo client-logo--petrofac" aria-label="Petrofac">Petrofac <span className="petrofac-mark" aria-hidden="true">P</span></div>
+                  <div className="client-logo client-logo--gsec" aria-label="GS Engineering and Construction"><span className="gsec-mark" aria-hidden="true" />GS <small>E&amp;C</small></div>
+                  <div className="client-logo client-logo--technip" aria-label="Technip">Technip</div>
+                  <div className="client-logo client-logo--cpecc" aria-label="CPECC"><span className="cpecc-mark" aria-hidden="true" />CPECC</div>
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
 
-      <div>
-        <span>02</span>
-        <strong>Source</strong>
-        <small>We connect you with practical products and services.</small>
-      </div>
+          <div className="clients-pagination" aria-label="Client logo carousel controls">
+            {Array.from({ length: 6 }, (_, index) => (
+              <button
+                className={activeClientSlide === index ? 'is-active' : ''}
+                key={index}
+                type="button"
+                aria-label={`Show client slide ${index + 1}`}
+                aria-current={activeClientSlide === index ? 'true' : undefined}
+                onClick={() => setActiveClientSlide(index)}
+              />
+            ))}
+          </div>
+        </motion.div>
+      </section>
 
-      <div>
-        <span>03</span>
-        <strong>Deliver</strong>
-        <small>We keep communication clear through every step.</small>
-      </div>
-    </div>
-  </div>
+      <section className="project-cta-section" aria-labelledby="project-cta-title">
+        <motion.div
+          className="project-cta-content"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, ease: 'easeOut' }}
+          viewport={{ once: true, margin: '-80px' }}
+        >
+          <p className="project-cta-label">Get in touch</p>
+          <h2 id="project-cta-title">Ready to power your next project?</h2>
+          <p className="project-cta-description">From specification to commissioning — our team across the Middle East is ready to engineer the right solution for you.</p>
+          <div className="project-cta-actions">
+            <a className="project-cta-button project-cta-button--primary" href="mailto:info@example.com">Get a Quote <span aria-hidden="true">→</span></a>
+            <a className="project-cta-button project-cta-button--secondary" href="#company-profile"><span aria-hidden="true">⇩</span> Company Profile</a>
+          </div>
+        </motion.div>
+      </section>
+      {/* Business enquiries section removed from the home page.
 
-  <div className="operations-images">
-    <img className="operations-image-main" src={img5} alt="" />
-    <img className="operations-image-small" src={img6} alt="" />
-  </div>
-</section>
-
-      <section className="consultation-section scroll-reveal" id="contact" data-reveal>
-        <h2>Have a requirement? Let&apos;s find the right way forward.</h2>
-        <div className="consultation-box">
-          <div className="form-container scroll-reveal" data-reveal>
-            <div className="badge-tag">// BUSINESS ENQUIRIES</div>
-            <h3>Tell us what your business needs.</h3>
-            <p>Share a few details and our team will get back to you about products, sourcing, or service support.</p>
-            <form onSubmit={(e) => e.preventDefault()}>
-              <div className="form-row">
-                <input type="text" placeholder="Your name*" required />
-                <input type="text" placeholder="Company" />
-              </div>
-              <input type="email" placeholder="Work email*" required />
-              <textarea placeholder="How can we help?" rows="4"></textarea>
               <button type="submit" className="submit-btn">Send enquiry <span>↗</span></button>
             </form>
           </div>
@@ -652,6 +646,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
     </div>
   );
 }

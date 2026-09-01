@@ -45,13 +45,14 @@
 
 
 /* =========================
-   MENU
+   DESKTOP MENU
 ========================= */
 
 .navbar-menu {
   display: flex;
   align-items: center;
   gap: 40px;
+
   margin-left: auto;
   margin-right: 45px;
 }
@@ -62,9 +63,10 @@
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 17px;
   font-weight: 500;
-  color: #142b52;
 
+  color: #142b52;
   text-decoration: none;
+
   padding: 46px 0 43px;
 
   transition: color 0.3s ease;
@@ -75,7 +77,9 @@
 }
 
 
-/* Active underline */
+/* =========================
+   ACTIVE LINK
+========================= */
 
 .nav-link.active {
   color: #1f4382;
@@ -83,13 +87,14 @@
 
 .nav-link.active::after {
   content: "";
-  position: absolute;
 
+  position: absolute;
   left: 0;
   right: 0;
   bottom: 38px;
 
   height: 3px;
+
   background: #234582;
   border-radius: 3px;
 }
@@ -106,7 +111,9 @@
 }
 
 
-/* Globe */
+/* =========================
+   LANGUAGE BUTTON
+========================= */
 
 .language-btn {
   width: 48px;
@@ -132,7 +139,9 @@
 }
 
 
-/* Quote */
+/* =========================
+   QUOTE BUTTON
+========================= */
 
 .quote-btn {
   height: 50px;
@@ -165,6 +174,48 @@
 
 
 /* =========================
+   HAMBURGER MENU BUTTON
+========================= */
+
+.menu-toggle {
+  display: none;
+
+  width: 44px;
+  height: 44px;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  background: transparent;
+  border: 1px solid #e0e5ec;
+  border-radius: 50%;
+
+  color: #234582;
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background: #f7f9fc;
+  border-color: #234582;
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu {
+  display: none;
+}
+
+/* =========================
    TABLET
 ========================= */
 
@@ -194,7 +245,7 @@
 
 
 /* =========================
-   MOBILE
+   TABLET / MOBILE
 ========================= */
 
 @media (max-width: 900px) {
@@ -211,22 +262,111 @@
     width: 250px;
   }
 
+  /* Hide desktop navigation */
   .navbar-menu {
     display: none;
   }
 
+  /* Hide Globe */
   .language-btn {
-    width: 42px;
-    height: 42px;
+    display: none;
   }
 
+  /* Quote button */
   .quote-btn {
     height: 44px;
     padding: 0 18px;
     font-size: 14px;
   }
+
+  /* Hamburger */
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    padding: 15px 25px 25px;
+
+    background: #ffffff;
+    border-top: 1px solid #eeeeee;
+
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
+
+    z-index: 999;
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .mobile-menu a {
+    display: block;
+
+    padding: 15px 5px;
+
+    color: #142b52;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid #eeeeee;
+
+    transition: 0.25s ease;
+  }
+
+  .mobile-menu a:hover {
+    color: #244582;
+    padding-left: 10px;
+  }
+
+  .mobile-menu .mobile-quote-btn {
+    margin-top: 18px;
+
+    padding: 14px 20px;
+
+    background: #244582;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 10px;
+
+    text-align: center;
+  }
+
+  .mobile-menu .mobile-quote-btn:hover {
+    padding-left: 20px;
+    background: #19366d;
+    color: #ffffff;
+  }
 }
 
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 550px) {
 
@@ -238,12 +378,49 @@
     gap: 8px;
   }
 
+  /* Globe already hidden */
   .language-btn {
+    display: none;
+  }
+
+  /* Hide desktop quote */
+  .quote-btn {
+    display: none;
+  }
+
+  /* Hamburger */
+  .menu-toggle {
     width: 38px;
     height: 38px;
   }
 
-  .quote-btn {
-    display: none;
+  .mobile-menu {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+
+/* =========================
+   EXTRA SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+
+  .navbar {
+    height: 80px;
+  }
+
+  .navbar-container {
+    padding: 0 15px;
+  }
+
+  .navbar-logo img {
+    width: 165px;
+  }
+
+  .menu-toggle {
+    width: 36px;
+    height: 36px;
   }
 }

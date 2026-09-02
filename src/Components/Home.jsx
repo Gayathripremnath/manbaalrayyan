@@ -16,7 +16,7 @@ const selectedProjects = [
   { image: img4, country: 'UAE', title: 'Mohammad Bin Rashid Library', className: 'selected-project--library' },
   { image: img3, country: 'UAE', title: 'Verde', className: 'selected-project--verde' },
   { image: img2, country: 'UAE', title: 'The Address Hotel', className: 'selected-project--address' },
-  { image: img3, country: 'Bahrain', title: 'Al Ezzel Power Plant', className: 'selected-project--power' },
+  { image: img3, country: 'Bahrain ', title: 'Al Ezzel Power Plant', className: 'selected-project--power' },
   { image: img6, country: 'Qatar', title: 'Anti Doping Lab', className: 'selected-project--lab' },
 ];
 
@@ -123,10 +123,21 @@ export default function Home() {
 </div>
         <div className="hero-content">
           <div className="hero-copy">
-            <div className="badge-tag">// MANBA AL RAYYAN LLC</div>
-            <h1 className="hero-title animate-up">Trading that moves business forward.</h1>
-            <p className="hero-intro">Reliable sourcing, supply, and operational services for organisations that value quality, speed, and long-term partnerships.</p>
-            <a className="hero-cta" href="#contact">Start a conversation <span>↗</span></a>
+            <div className="badge-tag">// WATER & WASTEWATER SOLUTIONS</div>
+
+<h1 className="hero-title animate-up">
+  Engineering smarter water solutions for a sustainable future.
+</h1>
+
+<p className="hero-intro">
+  Manba Al Rayyan Trading & Services LLC delivers reliable solutions in
+  water treatment, wastewater treatment, desalination, RO systems and
+  renal dialysis water treatment across Oman.
+</p>
+
+<a className="hero-cta" href="#services">
+  Explore our solutions <span>↗</span>
+</a>
           </div>
           {/* <div className="hero-right-card">
             <span className="built-tag">[BUILT FOR BUSINESS]</span>
@@ -238,9 +249,9 @@ export default function Home() {
       transition={{ duration: 0.7, delay: 0.15 }}
       viewport={{ once: true }}
     >
-      Our experienced team, reliable supplier network and commitment
-      to quality enable us to provide dependable products and practical
-      solutions for businesses across regional markets.
+      Manba Al Rayyan Trading & Services LLC is a wholly owned Omani company established with a team of experienced professionals in the field of
+engineering, construction and services. The company is at the heart of the Muscat city and is focused to deliver its clients and partners a complete
+contentment on their needs
     </motion.p>
 
     <motion.p
@@ -250,9 +261,8 @@ export default function Home() {
       transition={{ duration: 0.7, delay: 0.2 }}
       viewport={{ once: true }}
     >
-      We support organisations through trading, procurement, sourcing
-      and coordinated services, delivering solutions that are built
-      around their exact requirements.
+      We have our major business into desalination, water and waste water treatment. A strong & innovative team who are structured to cater their services
+into Design & Engineering, Supply & Installation of Equipment’s, Supply of Chemicals & Consumables, Imports & Exports and Sustainable solutions. 
     </motion.p>
 
 
@@ -275,8 +285,8 @@ export default function Home() {
         </div>
 
         <div>
-          <strong>50+</strong>
-          <span>Projects Supported</span>
+          <strong>76+</strong>
+<span>Projects Delivered</span>
         </div>
       </motion.div>
 
@@ -290,8 +300,8 @@ export default function Home() {
         </div>
 
         <div>
-          <strong>$10m</strong>
-          <span>Capital Invested</span>
+          <strong>2015</strong>
+<span>Established</span>
         </div>
       </motion.div>
 
@@ -337,15 +347,16 @@ export default function Home() {
       <p>
         {activeAboutTab === 'vision' ? (
           <>
-            Our vision is to become a trusted partner for trading,
-            sourcing and business solutions by maintaining high standards
-            of quality, reliability and customer satisfaction.
+            MARTS is structured to provide its client the best engineered quality
+systems and a sustainable solution in water and wastewater treatment
+with an environmental care. 
+
           </>
         ) : (
           <>
-            Our mission is to deliver excellence through reliable sourcing, quality products, and
-            dependable partnerships. We commit to supporting our clients' success with practical
-            solutions and long-term value creation across all GCC markets.
+            We continue to create innovative ideas and empower the work force
+through continuous training on latest technologies and design to fulfill our
+vision. 
           </>
         )}
       </p>
@@ -409,9 +420,19 @@ export default function Home() {
           transition={{ duration: 0.7, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          <div className="badge-tag">// WHAT WE DO</div>
-          <h2>Four pillars of service across the GCC and MENA region.</h2>
-          <p>From product specification to final commissioning — we deliver every stage of an electrical project under one roof.</p>
+        <div className="badge-tag">// OUR EXPERTISE</div>
+
+<h2>
+  Complete water and wastewater solutions from design to operation.
+</h2>
+
+<p>
+  From engineering and equipment supply to installation, commissioning
+  and maintenance, we provide integrated solutions for water,
+  wastewater and desalination applications.
+</p>
+
+where
         </motion.div>
         <motion.div
           className="services-grid"

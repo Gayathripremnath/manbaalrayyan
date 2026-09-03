@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import Footer from './Components/Footer';
+import About from './Components/About';
+import Services from './Components/Services';
 
 // Import components
 
@@ -24,14 +26,10 @@ export default function App() {
 
         {/* Route Definitions */}
         <Routes>
+
           <Route path="/" element={<Home />} />
-          {/* <Route path="/home" element={<Home />} />
-          <Route path="/blog" element={<GenericPage title="Blog" />} />
-          <Route path="/portfolio" element={<GenericPage title="Portfolio" />} />
-          <Route path="/pricing" element={<GenericPage title="Pricing" />} />
-          <Route path="/shop" element={<GenericPage title="Shop" />} />
-          <Route path="/services" element={<GenericPage title="Services" />} />
-          <Route path="/contact" element={<GenericPage title="Contact Us" />} /> */}
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
         </Routes>
 
         {/* Global Footer appears on all pages */}

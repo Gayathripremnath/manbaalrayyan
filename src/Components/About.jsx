@@ -1,337 +1,565 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
-import './About.css';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import "./About.css";
 
-const About = () => {
-  const [activeTab, setActiveTab] = useState('vision');
-  const [isReadMoreOpen, setIsReadMoreOpen] = useState(false);
+import img1 from "../assets/img1.png";
+import img2 from "../assets/img2.png";
+import img3 from "../assets/img3.png";
+import img4 from "../assets/img4.png";
+import img6 from "../assets/img6.png";
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
-    },
-  };
-
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.8, ease: 'easeOut' },
-    },
-  };
-
-  const statsVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (custom) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        delay: custom * 0.2,
-        ease: 'easeOut',
-      },
-    }),
-  };
-
-  const slideInVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.7, ease: 'easeOut' },
-    },
-  };
-
-  const slideInRightVariants = {
-    hidden: { opacity: 0, x: 30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.7, ease: 'easeOut' },
-    },
-  };
+const AboutUs = () => {
+  const [activeTab, setActiveTab] = useState("vision");
 
   return (
-    <div className="about-wrapper">
-      {/* Header Section */}
-      <motion.section
-        className="about-header"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
-      >
-        <motion.div className="header-label" variants={itemVariants}>
-          <span className="label-accent">•</span>
-          <span>ABOUT US</span>
-        </motion.div>
-        <motion.h1 className="about-title" variants={itemVariants}>
-          About Manba Al Rayyan
-        </motion.h1>
-      </motion.section>
+    <main className="about-page">
+      {/* =========================
+    SMALL PAGE BANNER
+========================= */}
+<section className="about-page-banner">
+  <div className="about-banner-overlay">
+    <div className="about-banner-content">
+      <span>ABOUT US</span>
+      <h1>About Manba Al Rayyan</h1>
 
-      {/* Main Content */}
-      <motion.section
-        className="about-content"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
-      >
-        {/* Left Side - Images */}
-        <motion.div className="about-images" variants={slideInVariants}>
-          <div className="image-grid">
-            <motion.div
-              className="image-box large"
-              variants={imageVariants}
-              whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-            >
-              <img src="/api/placeholder/250/200" alt="Oil and gas industry" />
-              <div className="image-overlay">
-                <span>Our Operations</span>
-              </div>
-            </motion.div>
-            <motion.div
-              className="image-box medium"
-              variants={imageVariants}
-              whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-            >
-              <img src="/api/placeholder/200/180" alt="Industrial equipment" />
-              <div className="image-overlay">
-                <span>Equipment Supply</span>
-              </div>
-            </motion.div>
-            <motion.div
-              className="image-box medium"
-              variants={imageVariants}
-              whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-            >
-              <img src="/api/placeholder/200/180" alt="Manufacturing" />
-              <div className="image-overlay">
-                <span>Manufacturing</span>
-              </div>
-            </motion.div>
-            <motion.div
-              className="image-box small"
-              variants={imageVariants}
-              whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-            >
-              <img src="/api/placeholder/180/150" alt="Industrial site" />
-              <div className="image-overlay">
-                <span>Site Operations</span>
-              </div>
-            </motion.div>
-            <motion.div
-              className="image-box small"
-              variants={imageVariants}
-              whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-            >
-              <img src="/api/placeholder/180/150" alt="Project management" />
-              <div className="image-overlay">
-                <span>Project Management</span>
-              </div>
-            </motion.div>
+      <div className="about-banner-breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <strong>About Us</strong>
+      </div>
+    </div>
+  </div>
+</section>
+      {/* =========================
+          ABOUT INTRO
+      ========================= */}
+      <section className="about-intro">
+
+        {/* Image Gallery */}
+        <motion.div
+          className="about-gallery"
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="about-gallery-item about-gallery-one">
+            <img src={img1} alt="Water treatment plant" />
+          </div>
+
+          <div className="about-gallery-item about-gallery-two">
+            <img src={img2} alt="Water treatment equipment" />
+          </div>
+
+          <div className="about-gallery-item about-gallery-three">
+            <img src={img3} alt="Industrial water treatment" />
+          </div>
+
+          <div className="about-gallery-item about-gallery-four">
+            <img src={img4} alt="Water treatment system" />
+          </div>
+
+          <div className="about-gallery-badge">
+            <span>ABOUT OUR COMPANY</span>
           </div>
         </motion.div>
 
-        {/* Right Side - Content */}
-        <motion.div className="about-text" variants={slideInRightVariants}>
-          <motion.p className="about-description" variants={itemVariants}>
-            Our experienced team along with our wide range of stocks and our liaisons with
-            various approved and reputed manufacturers around the globe has enabled us to
-            spread our wing all over the GCC countries in a short span of time. Today we have
-            the capability to supply approved materials to regional companies through their
-            approved vendors.
-          </motion.p>
 
-          {/* Statistics Cards */}
-          <motion.div className="stats-container" variants={containerVariants}>
-            <motion.div
-              className="stat-card"
-              custom={0}
-              variants={statsVariants}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-            >
-              <div className="stat-icon">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                  <path
-                    d="M12 28V14M20 28V10M28 28V18"
-                    stroke="#3b5bdb"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </div>
-              <div className="stat-content">
-                <motion.div
-                  className="stat-number"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                >
-                  50+
-                </motion.div>
-                <p>Projects Supported</p>
-              </div>
-            </motion.div>
+        {/* Content */}
+        <motion.div
+          className="about-intro-content"
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
 
-            <motion.div
-              className="stat-card"
-              custom={1}
-              variants={statsVariants}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-            >
-              <div className="stat-icon">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                  <circle cx="20" cy="20" r="8" stroke="#3b5bdb" strokeWidth="2" />
-                  <path
-                    d="M20 12V8M20 32V28M28 20H32M8 20H12"
-                    stroke="#3b5bdb"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </div>
-              <div className="stat-content">
-                <motion.div
-                  className="stat-number"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                >
-                  $510m
-                </motion.div>
-                <p>Capital Invested</p>
-              </div>
-            </motion.div>
-          </motion.div>
+          <div className="about-label">
+            <span></span>
+            <strong>ABOUT US</strong>
+          </div>
 
-          {/* Vision and Mission Section */}
-          <motion.div className="vision-mission" variants={containerVariants}>
-            <div className="tab-buttons">
-              <motion.button
-                className={`tab-btn ${activeTab === 'vision' ? 'active' : ''}`}
-                onClick={() => setActiveTab('vision')}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Vision
-              </motion.button>
-              <motion.button
-                className={`tab-btn ${activeTab === 'mission' ? 'active' : ''}`}
-                onClick={() => setActiveTab('mission')}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Mission
-              </motion.button>
+          <h1 className="about-intro-title">
+            About Manba Al Rayyan
+          </h1>
+
+          <p className="about-intro-text">
+            Manba Al Rayyan Trading & Services LLC is a wholly owned
+            Omani company established in 2015, with a team of experienced
+            professionals in engineering, construction and technical services.
+          </p>
+
+          <p className="about-intro-text">
+            Our major business focuses on desalination, water and wastewater
+            treatment. We provide complete solutions covering design &
+            engineering, equipment supply and installation, chemicals &
+            consumables, operation & maintenance and sustainable solutions.
+          </p>
+
+
+          {/* Statistics */}
+          <div className="about-statistics">
+
+            <div className="about-stat">
+              <div className="about-stat-icon">✓</div>
+
+              <div>
+                <strong>76+</strong>
+                <span>Projects Delivered</span>
+              </div>
             </div>
 
-            <motion.div
-              className="tab-content"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              key={activeTab}
-            >
-              {activeTab === 'vision' ? (
-                <p>
-                  Manba Al Rayyan's vision is to be an industry leader in manufacturing and supply of high
-                  quality products in the oil and gas industry with benchmark in quality of stock of base
-                  materials and contribute to sustainable development with a highly trained team of
-                  experienced professionals.
-                </p>
-              ) : (
-                <p>
-                  Our mission is to deliver excellence through reliable sourcing, quality products, and
-                  dependable partnerships. We commit to supporting our clients' success with practical
-                  solutions and long-term value creation across all GCC markets.
-                </p>
-              )}
-            </motion.div>
-          </motion.div>
+            <div className="about-stat">
+              <div className="about-stat-icon">◎</div>
 
-          {/* Read More Button */}
-          <motion.button
-            className="read-more-btn"
-            onClick={() => setIsReadMoreOpen(!isReadMoreOpen)}
-            whileHover={{ scale: 1.05, boxShadow: '0 10px 25px rgba(59, 91, 219, 0.3)' }}
-            whileTap={{ scale: 0.98 }}
-            variants={itemVariants}
-          >
-            Read More
-            <motion.span
-              animate={{ rotate: isReadMoreOpen ? 180 : 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <ChevronDown size={20} />
-            </motion.span>
-          </motion.button>
+              <div>
+                <strong>2015</strong>
+                <span>Established</span>
+              </div>
+            </div>
 
-          {/* Expanded Content */}
-          <motion.div
-            className="expanded-content"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{
-              opacity: isReadMoreOpen ? 1 : 0,
-              height: isReadMoreOpen ? 'auto' : 0,
-            }}
-            transition={{ duration: 0.4 }}
-          >
+          </div>
+
+
+          {/* Vision / Mission */}
+          <div className="about-tabs">
+
+            <button
+              className={activeTab === "vision" ? "active" : ""}
+              onClick={() => setActiveTab("vision")}
+            >
+              Vision
+            </button>
+
+            <button
+              className={activeTab === "mission" ? "active" : ""}
+              onClick={() => setActiveTab("mission")}
+            >
+              Mission
+            </button>
+
+          </div>
+
+
+          <div className="about-tab-content">
+
+            {activeTab === "vision" ? (
+              <p>
+                MARTS is structured to provide its clients with the best
+                engineered quality systems and sustainable solutions in
+                water and wastewater treatment with environmental care.
+              </p>
+            ) : (
+              <p>
+                To deliver reliable, innovative and sustainable water
+                treatment solutions while creating long-term value for
+                our clients through engineering excellence, quality and
+                professional service.
+              </p>
+            )}
+
+          </div>
+
+          <a href="#company-overview" className="about-intro-button">
+            Explore More
+            <span>↗</span>
+          </a>
+
+        </motion.div>
+      </section>
+
+
+      {/* =========================
+          COMPANY OVERVIEW
+      ========================= */}
+      <section className="about-overview" id="company-overview">
+
+        <div className="about-container">
+
+          <div className="about-section-heading">
+
+            <div className="about-label">
+              <span></span>
+              <strong>WHO WE ARE</strong>
+            </div>
+
+            <h2>
+              Complete water and wastewater solutions
+              from design to operation.
+            </h2>
+
+          </div>
+
+
+          <div className="about-overview-grid">
+
+            <div className="about-overview-text">
+
+              <p>
+                Manba Al Rayyan Trading & Services LLC operates in the
+                Sultanate of Oman with a strong focus on desalination,
+                water treatment and wastewater treatment applications.
+              </p>
+
+              <p>
+                Our experienced team works across the complete project
+                lifecycle, from initial design and engineering through
+                equipment supply, installation, commissioning, operation
+                and maintenance.
+              </p>
+
+              <p>
+                We aim to provide practical and sustainable solutions
+                tailored to the technical and operational requirements
+                of each client.
+              </p>
+
+            </div>
+
+
+            <div className="about-overview-points">
+
+              <div className="about-overview-point">
+                <span>01</span>
+                <div>
+                  <h3>Engineering Excellence</h3>
+                  <p>
+                    Technical solutions designed around project
+                    requirements and performance.
+                  </p>
+                </div>
+              </div>
+
+              <div className="about-overview-point">
+                <span>02</span>
+                <div>
+                  <h3>Reliable Service</h3>
+                  <p>
+                    Professional support from installation through
+                    operation and maintenance.
+                  </p>
+                </div>
+              </div>
+
+              <div className="about-overview-point">
+                <span>03</span>
+                <div>
+                  <h3>Sustainable Approach</h3>
+                  <p>
+                    Solutions focused on efficient use of water,
+                    energy and resources.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      {/* =========================
+          OUR EXPERTISE
+      ========================= */}
+      <section className="about-expertise">
+
+        <div className="about-container">
+
+          <div className="about-section-heading about-heading-center">
+
+            <div className="about-label">
+              <span></span>
+              <strong>OUR EXPERTISE</strong>
+            </div>
+
+            <h2>
+              Integrated services for water
+              and wastewater projects.
+            </h2>
+
+          </div>
+
+
+          <div className="about-expertise-grid">
+
+            <div className="about-expertise-card">
+              <span>01</span>
+              <h3>Design & Engineering</h3>
+              <p>
+                Engineering and technical solutions for water,
+                wastewater and desalination applications.
+              </p>
+            </div>
+
+            <div className="about-expertise-card">
+              <span>02</span>
+              <h3>Supply & Installation</h3>
+              <p>
+                Supply and installation of treatment equipment,
+                systems and associated components.
+              </p>
+            </div>
+
+            <div className="about-expertise-card">
+              <span>03</span>
+              <h3>Chemicals & Consumables</h3>
+              <p>
+                Supply of chemicals, consumables and essential
+                products required for treatment systems.
+              </p>
+            </div>
+
+            <div className="about-expertise-card">
+              <span>04</span>
+              <h3>Operation & Maintenance</h3>
+              <p>
+                Skilled technical personnel providing reliable
+                operation, maintenance and technical support.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      {/* =========================
+          OUR SOLUTIONS
+      ========================= */}
+      <section className="about-solutions">
+
+        <div className="about-container">
+
+          <div className="about-solutions-grid">
+
+            <div className="about-solutions-image">
+              <img
+                src={img6}
+                alt="Water treatment solutions"
+              />
+            </div>
+
+
+            <div className="about-solutions-content">
+
+              <div className="about-label">
+                <span></span>
+                <strong>OUR SOLUTIONS</strong>
+              </div>
+
+              <h2>
+                Water treatment solutions
+                built around real needs.
+              </h2>
+
+              <p>
+                We provide a wide range of solutions for industrial,
+                municipal and specialized water treatment applications.
+              </p>
+
+
+              <div className="about-solution-list">
+
+                <div>
+                  <span>✓</span>
+                  <p>Packaged RO & STP Plants</p>
+                </div>
+
+                <div>
+                  <span>✓</span>
+                  <p>Industrial Water Treatment</p>
+                </div>
+
+                <div>
+                  <span>✓</span>
+                  <p>Municipal Water Treatment</p>
+                </div>
+
+                <div>
+                  <span>✓</span>
+                  <p>Desalination Solutions</p>
+                </div>
+
+                <div>
+                  <span>✓</span>
+                  <p>Refurbishment & Retrofitting</p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      {/* =========================
+          SUSTAINABILITY
+      ========================= */}
+      <section className="about-sustainability">
+
+        <div className="about-container">
+
+          <div className="about-sustainability-content">
+
+            <div className="about-label">
+              <span></span>
+              <strong>SUSTAINABILITY</strong>
+            </div>
+
+            <h2>
+              Creating efficient solutions
+              with environmental responsibility.
+            </h2>
+
             <p>
-              We work with the region's most recognized and trusted manufacturers to bring you
-              products that meet the highest international standards. Our commitment to excellence
-              ensures that every project receives the attention and resources it deserves, from
-              initial planning through successful completion.
+              Sustainability is an important part of our approach.
+              We support projects that focus on efficient water and
+              power usage, environmental care and responsible resource
+              management.
             </p>
-          </motion.div>
-        </motion.div>
-      </motion.section>
 
-      {/* CEO Section */}
-      <motion.section
-        className="ceo-section"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
-      >
-        <motion.div className="ceo-content" variants={slideInVariants}>
-          <motion.div
-            className="ceo-avatar"
-            variants={imageVariants}
-            whileHover={{ scale: 1.1, rotate: 5 }}
-          >
-            <div className="avatar-placeholder">
-              <span>MB</span>
+          </div>
+
+
+          <div className="about-sustainability-grid">
+
+            <div>
+              <span>01</span>
+              <h3>Green Environment Projects</h3>
             </div>
-          </motion.div>
-          <motion.div className="ceo-info" variants={itemVariants}>
-            <p className="ceo-title">CEO of Manba Al Rayyan</p>
-            <p className="ceo-quote">
-              "Excellence in supply and commitment to our partners' success."
-            </p>
-          </motion.div>
-        </motion.div>
-      </motion.section>
-    </div>
+
+            <div>
+              <span>02</span>
+              <h3>Energy Auditing</h3>
+            </div>
+
+            <div>
+              <span>03</span>
+              <h3>Renewable Energy Projects</h3>
+            </div>
+
+            <div>
+              <span>04</span>
+              <h3>Water & Power Audits</h3>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* =========================
+          DWA PARTNERSHIP
+      ========================= */}
+      <section className="about-dwa">
+
+        <div className="about-container">
+
+          <div className="about-dwa-grid">
+
+            <div className="about-dwa-content">
+
+              <div className="about-label">
+                <span></span>
+                <strong>DWA PARTNERSHIP</strong>
+              </div>
+
+              <h2>
+                Authorized distributor for
+                DWA medical devices in Oman.
+              </h2>
+
+              <p>
+                Manba Al Rayyan Trading & Services LLC is the authorized
+                distributor for DWA medical devices in Oman, supporting
+                customers with quotation, tendering, distribution,
+                installation, maintenance and technical service.
+              </p>
+
+              <p>
+                Our technical capabilities include support for reverse
+                osmosis systems and medical water treatment solutions.
+              </p>
+
+            </div>
+
+
+            <div className="about-dwa-points">
+
+              <div>
+                <span>✓</span>
+                <p>Distribution & Supply</p>
+              </div>
+
+              <div>
+                <span>✓</span>
+                <p>Installation Support</p>
+              </div>
+
+              <div>
+                <span>✓</span>
+                <p>Maintenance Services</p>
+              </div>
+
+              <div>
+                <span>✓</span>
+                <p>Technical Support</p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* =========================
+          CTA
+      ========================= */}
+      <section className="about-contact">
+
+        <div className="about-container">
+
+          <div className="about-contact-box">
+
+            <div>
+
+              <div className="about-label">
+                <span></span>
+                <strong>LET'S WORK TOGETHER</strong>
+              </div>
+
+              <h2>
+                Looking for a reliable
+                water treatment partner?
+              </h2>
+
+              <p>
+                Talk to our team about your next water,
+                wastewater or desalination project.
+              </p>
+
+            </div>
+
+
+            <a
+              href="mailto:martenquiries@gmail.com"
+              className="about-contact-button"
+            >
+              Start a Conversation
+              <span>↗</span>
+            </a>
+
+          </div>
+
+        </div>
+      </section>
+
+    </main>
   );
 };
 
-export default About;
+export default AboutUs;

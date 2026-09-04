@@ -29,12 +29,12 @@ export default function Footer() {
           <h3>QUICK LINKS</h3>
 
           <a href="/">Home</a>
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#products">Products</a>
-          <a href="#projects">Projects</a>
-          <a href="#blog">Solutions</a>
-          <a href="#contact">Contact</a>
+          <a href="/about">About</a>
+          <a href="/services">Services</a>
+          <a href="/products">Products</a>
+          <a href="/projects">Projects</a>
+          <a href="/solutions">Solutions</a>
+          <a href="/contact">Contact</a>
         </div>
 
         {/* CONTACT */}

@@ -53,12 +53,14 @@ function Services() {
   return (
     <main className="services-page">
 
-      {/* ================= BANNER ================= */}
+      {/* ================= HERO ================= */}
       <section className="services-hero">
-        <div className="services-hero-shape"></div>
+        <div className="services-hero-bg"></div>
 
         <div className="services-hero-content">
-          <span className="services-eyebrow">OUR SERVICES</span>
+          <span className="services-eyebrow">
+            OUR SERVICES
+          </span>
 
           <h1>
             Water solutions
@@ -67,29 +69,38 @@ function Services() {
           </h1>
 
           <p>
-            Engineering, equipment, installation and operational support
-            for water, wastewater and desalination applications.
+            Engineering, equipment, installation and operational
+            support for water, wastewater and desalination
+            applications.
           </p>
 
           <div className="services-breadcrumb">
             <a href="/">Home</a>
-            <span>—</span>
+            <span>/</span>
             <strong>Services</strong>
           </div>
         </div>
 
         <div className="services-hero-image">
-          <img src={img1} alt="Water treatment system" />
+          <img
+            src={img1}
+            alt="Water treatment system"
+          />
         </div>
       </section>
 
 
       {/* ================= INTRO ================= */}
       <section className="services-intro">
-        <div className="services-intro-number">01</div>
 
-        <div className="services-intro-content">
-          <span className="section-label">WHAT WE DELIVER</span>
+        <div className="intro-number">
+          01
+        </div>
+
+        <div className="intro-heading">
+          <span className="section-label">
+            WHAT WE DELIVER
+          </span>
 
           <h2>
             From engineering
@@ -98,79 +109,113 @@ function Services() {
           </h2>
         </div>
 
-        <div className="services-intro-text">
+        <div className="intro-text">
           <p>
-            Manba Al Rayyan Trading & Services LLC provides integrated
-            water and wastewater solutions covering the complete project
-            lifecycle.
+            Manba Al Rayyan Trading & Services LLC provides
+            integrated water and wastewater solutions covering
+            the complete project lifecycle.
           </p>
 
           <p>
-            Our capabilities combine engineering expertise, equipment
-            supply, installation, commissioning, operation and maintenance
-            to deliver dependable treatment solutions.
+            Our capabilities combine engineering expertise,
+            equipment supply, installation, commissioning,
+            operation and maintenance to deliver dependable
+            treatment solutions.
           </p>
         </div>
+
       </section>
 
 
-      {/* ================= SERVICE LIST ================= */}
-      <section className="service-list-section">
+      {/* ================= CORE SERVICES ================= */}
+      <section className="services-list-section">
 
-        <div className="service-list-heading">
+        <div className="services-heading">
+
           <div>
-            <span className="section-label">CORE SERVICES</span>
-            <h2>One partner.<br />Complete solutions.</h2>
+            <span className="section-label">
+              CORE SERVICES
+            </span>
+
+            <h2>
+              One partner.
+              <br />
+              <span>Complete solutions.</span>
+            </h2>
           </div>
 
           <p>
-            Practical solutions designed around performance, reliability
-            and long-term operation.
+            Practical solutions designed around performance,
+            reliability and long-term operation.
           </p>
+
         </div>
 
-        <div className="service-list">
+
+        <div className="services-grid">
 
           {services.map((service, index) => (
             <motion.article
-              className="service-row"
+              className="service-card"
               key={service.number}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              initial={{
+                opacity: 0,
+                y: 25,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.15,
+              }}
               transition={{
-                duration: 0.6,
-                delay: index * 0.08,
+                duration: 0.5,
+                delay: index * 0.06,
               }}
             >
 
-              <div className="service-number">
-                {service.number}
+              <div className="service-card-image">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                />
+
+                <span className="service-card-number">
+                  {service.number}
+                </span>
               </div>
 
-              <div className="service-image">
-                <img src={service.image} alt={service.title} />
-              </div>
+              <div className="service-card-content">
 
-              <div className="service-content">
-                <h3>{service.title}</h3>
+                <h3>
+                  {service.title}
+                </h3>
 
-                <p>{service.text}</p>
+                <p>
+                  {service.text}
+                </p>
 
-                <span className="service-arrow">↗</span>
+                <span className="service-card-arrow">
+                  ↗
+                </span>
+
               </div>
 
             </motion.article>
           ))}
 
         </div>
+
       </section>
 
 
       {/* ================= SOLUTIONS ================= */}
       <section className="solutions-section">
 
-        <div className="solutions-top">
+        <div className="solutions-header">
+
           <div>
             <span className="section-label light-label">
               WATER & WASTEWATER
@@ -184,57 +229,91 @@ function Services() {
           </div>
 
           <p>
-            Our solutions cover packaged treatment plants, industrial and
-            municipal applications, desalination and plant refurbishment.
+            Our solutions cover packaged treatment plants,
+            industrial and municipal applications, desalination
+            and plant refurbishment.
           </p>
+
         </div>
 
 
-        <div className="solutions-grid">
+        <div className="solutions-layout">
 
+          {/* IMAGE */}
           <div className="solutions-image">
-            <img src={img3} alt="Water treatment solution" />
 
-            <div className="solutions-image-caption">
-              <span>ENGINEERED FOR PERFORMANCE</span>
-              <strong>Reliable treatment systems</strong>
+            <img
+              src={img3}
+              alt="Water treatment solution"
+            />
+
+            <div className="solutions-image-overlay">
+              <span>
+                ENGINEERED FOR PERFORMANCE
+              </span>
+
+              <strong>
+                Reliable treatment systems
+              </strong>
             </div>
+
           </div>
 
 
-          <div className="solutions-list">
+          {/* LIST */}
+          <div className="ser-solutions-list">
 
             {solutions.map((solution, index) => (
               <motion.div
-                className="solution-item"
+                className="solution-row"
                 key={solution}
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                initial={{
+                  opacity: 0,
+                  x: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
                 transition={{
-                  duration: 0.5,
-                  delay: index * 0.08,
+                  duration: 0.4,
+                  delay: index * 0.07,
                 }}
               >
-                <span>0{index + 1}</span>
 
-                <h3>{solution}</h3>
+                <span className="solution-number">
+                  0{index + 1}
+                </span>
 
-                <b>↗</b>
+                <h3>
+                  {solution}
+                </h3>
+
+                <span className="solution-arrow">
+                  ↗
+                </span>
+
               </motion.div>
             ))}
 
           </div>
 
         </div>
+
       </section>
 
 
       {/* ================= O&M ================= */}
       <section className="om-section">
 
-        <div className="om-left">
-          <span className="section-label">OPERATION & SUPPORT</span>
+        <div className="om-content">
+
+          <span className="section-label">
+            OPERATION & SUPPORT
+          </span>
 
           <h2>
             Keeping your
@@ -243,10 +322,10 @@ function Services() {
           </h2>
 
           <p>
-            Our operation and maintenance services are supported by
-            trained and integrated personnel, high safety standards,
-            standard operating procedures and responsive technical
-            assistance.
+            Our operation and maintenance services are supported
+            by trained and integrated personnel, high safety
+            standards, standard operating procedures and
+            responsive technical assistance.
           </p>
 
           <a
@@ -256,35 +335,50 @@ function Services() {
             Talk to our team
             <span>↗</span>
           </a>
+
         </div>
 
 
-        <div className="om-right">
+        <div className="om-cards">
 
           <div className="om-card">
             <span>01</span>
-            <h3>Trained Personnel</h3>
+
+            <h3>
+              Trained Personnel
+            </h3>
+
             <p>
-              Skilled teams supporting day-to-day plant operation and
-              maintenance activities.
+              Skilled teams supporting day-to-day plant
+              operation and maintenance activities.
             </p>
           </div>
+
 
           <div className="om-card">
             <span>02</span>
-            <h3>Safety First</h3>
+
+            <h3>
+              Safety First
+            </h3>
+
             <p>
-              High safety standards and structured operating procedures
-              for dependable plant performance.
+              High safety standards and structured operating
+              procedures for dependable plant performance.
             </p>
           </div>
 
+
           <div className="om-card">
             <span>03</span>
-            <h3>Technical Response</h3>
+
+            <h3>
+              Technical Response
+            </h3>
+
             <p>
-              Immediate response and technical support when operational
-              requirements demand it.
+              Immediate response and technical support when
+              operational requirements demand it.
             </p>
           </div>
 
@@ -296,10 +390,15 @@ function Services() {
       {/* ================= SUSTAINABILITY ================= */}
       <section className="sustainability-section">
 
-        <div className="sustainability-number">02</div>
+        <div className="sustainability-number">
+          02
+        </div>
 
         <div className="sustainability-content">
-          <span className="section-label">SUSTAINABLE SOLUTIONS</span>
+
+          <span className="section-label">
+            SUSTAINABLE SOLUTIONS
+          </span>
 
           <h2>
             Better water.
@@ -308,14 +407,21 @@ function Services() {
           </h2>
 
           <p>
-            We support sustainable initiatives through green environment
-            projects, energy auditing, renewable energy projects and
-            water and power audits.
+            We support sustainable initiatives through green
+            environment projects, energy auditing, renewable
+            energy projects and water and power audits.
           </p>
+
         </div>
 
+
         <div className="sustainability-image">
-          <img src={img6} alt="Sustainable water solution" />
+
+          <img
+            src={img6}
+            alt="Sustainable water solution"
+          />
+
         </div>
 
       </section>
@@ -324,16 +430,18 @@ function Services() {
       {/* ================= CTA ================= */}
       <section className="services-cta">
 
-        <div className="cta-line"></div>
-
         <div className="cta-content">
-          <span>HAVE A PROJECT IN MIND?</span>
+
+          <span>
+            HAVE A PROJECT IN MIND?
+          </span>
 
           <h2>
             Let's build the
             <br />
             <strong>right solution.</strong>
           </h2>
+
         </div>
 
         <a

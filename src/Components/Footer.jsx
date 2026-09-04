@@ -33,7 +33,7 @@ export default function Footer() {
           <a href="#services">Services</a>
           <a href="#products">Products</a>
           <a href="#projects">Projects</a>
-          <a href="#blog">Blog</a>
+          <a href="#blog">Solutions</a>
           <a href="#contact">Contact</a>
         </div>
 

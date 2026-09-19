@@ -120,23 +120,23 @@ const AboutUs = () => {
 
 
           {/* Vision / Mission */}
-          <div className="about-tabs">
+            {/* <div className="about-tabs">
 
-            <button
-              className={activeTab === "vision" ? "active" : ""}
-              onClick={() => setActiveTab("vision")}
-            >
-              Vision
-            </button>
+              <button
+                className={activeTab === "vision" ? "active" : ""}
+                onClick={() => setActiveTab("vision")}
+              >
+                Vision
+              </button>
 
-            <button
-              className={activeTab === "mission" ? "active" : ""}
-              onClick={() => setActiveTab("mission")}
-            >
-              Mission
-            </button>
+              <button
+                className={activeTab === "mission" ? "active" : ""}
+                onClick={() => setActiveTab("mission")}
+              >
+                Mission
+              </button>
 
-          </div>
+            </div> */}
 
 
           <div className="about-tab-content">

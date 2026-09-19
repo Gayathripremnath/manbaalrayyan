@@ -16,12 +16,11 @@
   max-width: 1450px;
   height: 100%;
   margin: 0 auto;
+  padding: 0 40px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding: 0 40px;
 }
 
 
@@ -32,8 +31,8 @@
 .navbar-logo {
   display: flex;
   align-items: center;
-  text-decoration: none;
   flex-shrink: 0;
+  text-decoration: none;
 }
 
 .navbar-logo img {
@@ -45,7 +44,7 @@
 
 
 /* =========================
-   DESKTOP MENU
+   DESKTOP NAVIGATION
 ========================= */
 
 .navbar-menu {
@@ -60,14 +59,15 @@
 .nav-link {
   position: relative;
 
+  padding: 46px 0 43px;
+
+  color: #142b52;
+
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 17px;
   font-weight: 500;
 
-  color: #142b52;
   text-decoration: none;
-
-  padding: 46px 0 43px;
 
   transition: color 0.3s ease;
 }
@@ -78,7 +78,7 @@
 
 
 /* =========================
-   ACTIVE LINK
+   ACTIVE NAV LINK
 ========================= */
 
 .nav-link.active {
@@ -124,10 +124,12 @@
   justify-content: center;
 
   background: #ffffff;
+
   border: 1px solid #e0e5ec;
   border-radius: 50%;
 
   color: #234582;
+
   cursor: pointer;
 
   transition: all 0.3s ease;
@@ -140,7 +142,7 @@
 
 
 /* =========================
-   QUOTE BUTTON
+   GET A QUOTE
 ========================= */
 
 .quote-btn {
@@ -174,7 +176,7 @@
 
 
 /* =========================
-   HAMBURGER MENU BUTTON
+   MOBILE MENU BUTTON
 ========================= */
 
 .menu-toggle {
@@ -189,10 +191,12 @@
   padding: 0;
 
   background: transparent;
+
   border: 1px solid #e0e5ec;
   border-radius: 50%;
 
   color: #234582;
+
   cursor: pointer;
 
   transition:
@@ -214,6 +218,7 @@
 .mobile-menu {
   display: none;
 }
+
 
 /* =========================
    TABLET
@@ -262,29 +267,39 @@
     width: 250px;
   }
 
+
   /* Hide desktop navigation */
+
   .navbar-menu {
     display: none;
   }
 
-  /* Hide Globe */
+
+  /* Hide language */
+
   .language-btn {
     display: none;
   }
 
+
   /* Quote button */
+
   .quote-btn {
     height: 44px;
     padding: 0 18px;
     font-size: 14px;
   }
 
+
   /* Hamburger */
+
   .menu-toggle {
     display: flex;
   }
 
+
   /* Mobile menu */
+
   .mobile-menu {
     display: flex;
     flex-direction: column;
@@ -297,12 +312,14 @@
     padding: 15px 25px 25px;
 
     background: #ffffff;
+
     border-top: 1px solid #eeeeee;
 
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
 
     opacity: 0;
     visibility: hidden;
+
     transform: translateY(-10px);
 
     transition:
@@ -319,7 +336,10 @@
     transform: translateY(0);
   }
 
-  .mobile-menu a {
+
+  /* Mobile navigation links */
+
+  .mobile-nav-link {
     display: block;
 
     padding: 15px 5px;
@@ -334,17 +354,26 @@
 
     border-bottom: 1px solid #eeeeee;
 
-    transition: 0.25s ease;
+    transition:
+      color 0.25s ease,
+      padding-left 0.25s ease;
   }
 
-  .mobile-menu a:hover {
+  .mobile-nav-link:hover {
     color: #244582;
     padding-left: 10px;
   }
 
-  .mobile-menu .mobile-quote-btn {
-    margin-top: 18px;
+  .mobile-nav-link.active {
+    color: #244582;
+    font-weight: 600;
+  }
 
+
+  /* Mobile quote */
+
+  .mobile-quote-btn {
+    margin-top: 18px;
     padding: 14px 20px;
 
     background: #244582;
@@ -354,12 +383,22 @@
     border-radius: 10px;
 
     text-align: center;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+      background 0.25s ease,
+      transform 0.25s ease;
   }
 
-  .mobile-menu .mobile-quote-btn:hover {
-    padding-left: 20px;
+  .mobile-quote-btn:hover {
     background: #19366d;
     color: #ffffff;
+    transform: translateY(-2px);
   }
 }
 
@@ -378,17 +417,14 @@
     gap: 8px;
   }
 
-  /* Globe already hidden */
   .language-btn {
     display: none;
   }
 
-  /* Hide desktop quote */
   .quote-btn {
     display: none;
   }
 
-  /* Hamburger */
   .menu-toggle {
     width: 38px;
     height: 38px;

@@ -18,10 +18,6 @@ export default function Footer() {
             GCC and MENA region.
           </p>
 
-          <div className="footer-tags">
-            <span>LINKK</span>
-            <span>MEGADUCT</span>
-          </div>
         </div>
 
         {/* QUICK LINKS */}
@@ -57,7 +53,7 @@ export default function Footer() {
       <div className="footer-bottom">
 
         <p>
-          © 2026 Genova technologies Pvt Ltd.
+          © 2026 Genova Technologies Pvt Ltd.
         </p>
 
         <div className="footer-legal">

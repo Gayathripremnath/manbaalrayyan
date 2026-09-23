@@ -20,7 +20,7 @@ import sandroseLogo from "../assets/sandrose.png";
 import galfarLogo from "../assets/galfar.png";
 import ltLogo from "../assets/L@T.png";
 import saifHarrasiLogo from "../assets/saifalharasi.jpg";
-// import alNabaLogo from "../assets/alNabaHolding.png";
+import alNabaLogo from "../assets/AlNabaHolding.png";
 import crownePlazaLogo from "../assets/crowneplaza.png";
 import hashemiRawasLogo from "../assets/hasemi&rawas.png";
 import minaPetroleumLogo from "../assets/MinaPetroleum.png";

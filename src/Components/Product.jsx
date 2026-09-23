@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import "./Product.css";
 
@@ -310,7 +309,7 @@ function Product() {
         <div className="dwa-image">
 
           <img
-            src={img4}
+            src={img3}
             alt="DWA water treatment systems"
           />
 

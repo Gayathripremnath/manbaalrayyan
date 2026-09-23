@@ -7,7 +7,6 @@ import img3 from '../assets/img3.jpg';
 // import img4 from '../assets/img4.png';
 // import img5 from '../assets/img5.png';
 // import img6 from '../assets/img6.png';
-import heroVideo from '../assets/vid1.mp4';
 
 import ropLogo from "../assets/rop-a.jpg";
 import namaLogo from "../assets/nama.png";
@@ -39,28 +38,10 @@ const selectedProjects = [
   { image: img2, country: 'Qatar', title: 'Anti Doping Lab', className: 'selected-project--lab' },
 ];
 
-const heroSlides = [
-  { image: img1, alt: 'Products prepared for business supply' },
-  { image: img2, alt: 'Trading and sourcing support' },
-  { image: img3, alt: 'Business operations and service delivery' },
-];
-
 export default function Home() {
   const scrollTopButtonRef = useRef(null);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [isSliderPaused, setIsSliderPaused] = useState(false);
   const [activeAboutTab, setActiveAboutTab] = useState('vision');
   const [activeClientSlide, setActiveClientSlide] = useState(0);
-
-  useEffect(() => {
-    if (isSliderPaused) return undefined;
-
-    const sliderTimer = window.setInterval(() => {
-      setActiveSlide((currentSlide) => (currentSlide + 1) % heroSlides.length);
-    }, 5000);
-
-    return () => window.clearInterval(sliderTimer);
-  }, [isSliderPaused]);
 
   useEffect(() => {
     const clientSliderTimer = window.setInterval(() => {
@@ -122,21 +103,14 @@ export default function Home() {
       </button>
       <section
         className="hero-section"
-        onMouseEnter={() => setIsSliderPaused(true)}
-        onMouseLeave={() => setIsSliderPaused(false)}
       >
         <div className="hero-video">
-  <video
+  <img
     className="hero-video-bg"
-    autoPlay
-    muted
-    loop
-    playsInline
-    preload="auto"
-  >
-    <source src={heroVideo} type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+    src={img1}
+    alt=""
+    aria-hidden="true"
+  />
 
   <div className="hero-video-overlay"></div>
 </div>

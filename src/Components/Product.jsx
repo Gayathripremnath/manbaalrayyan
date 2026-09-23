@@ -7,6 +7,12 @@ import treatmentPlant from "../assets/treatment-plant.webp";
 import equipment from "../assets/Pump installation.jpeg";
 import consumables from "../assets/Pretreatment.jpg";
 import dwaSystem from "../assets/RO.jpg";
+import roMembrane from "../assets/RO.jpg";
+import highPurityRo from "../assets/high-purity-ro.webp";
+import softenerSystem from "../assets/softener-system.webp";
+import stpInstallation from "../assets/stp-installation.webp";
+import electrochlorination from "../assets/Electrochlorination.jpeg";
+import automationPanel from "../assets/automation-panel.webp";
 
 const products = [
   {
@@ -15,7 +21,11 @@ const products = [
     title: "Reverse Osmosis Systems",
     description:
       "Complete RO plants and key components for industrial, commercial and medical water treatment.",
-    image: roPlant,
+    images: [
+      { src: roPlant, label: "RO plant", alt: "Packaged reverse osmosis plant" },
+      { src: roMembrane, label: "Membranes & pressure tubes", alt: "RO membrane pressure vessels and pipework" },
+      { src: highPurityRo, label: "High-purity RO", alt: "High-purity reverse osmosis equipment" },
+    ],
     tags: ["RO plants", "Membranes", "Pressure tubes"],
   },
   {
@@ -24,7 +34,11 @@ const products = [
     title: "Media Filtration Systems",
     description:
       "Pre-treatment systems that protect downstream equipment and improve feed-water quality.",
-    image: mediaFilters,
+    images: [
+      { src: mediaFilters, label: "Sand & carbon filters", alt: "Blue multimedia and carbon filter tanks" },
+      { src: softenerSystem, label: "Softener system", alt: "Blue water softener tanks and pipework" },
+      { src: consumables, label: "Pre-treatment filters", alt: "Pre-treatment water filtration equipment" },
+    ],
     tags: ["Sand & carbon filters", "Multiport valves", "Softeners"],
   },
   {
@@ -33,7 +47,10 @@ const products = [
     title: "STP Solutions",
     description:
       "Packaged modular and conventional sewage treatment plants for project-specific wastewater flows.",
-    image: treatmentPlant,
+    images: [
+      { src: treatmentPlant, label: "Packaged treatment", alt: "Packaged water treatment equipment" },
+      { src: stpInstallation, label: "Treatment plant installation", alt: "Installed water and wastewater treatment equipment" },
+    ],
     tags: ["Modular STP", "Conventional STP", "Wastewater"],
   },
   {
@@ -42,7 +59,11 @@ const products = [
     title: "Water Treatment Equipment",
     description:
       "Plant equipment and process components for water treatment, wastewater treatment and disinfection.",
-    image: equipment,
+    images: [
+      { src: equipment, label: "Pumps", alt: "Industrial pump installation" },
+      { src: electrochlorination, label: "Electrochlorination", alt: "Electrochlorination system installation" },
+      { src: automationPanel, label: "Controls & instruments", alt: "Water treatment control panel" },
+    ],
     tags: ["Pumps", "Micron filters & MCF housings", "Instruments & analysers", "Valves", "Electrochlorination", "UV systems", "Anoxic mixers"],
   },
   {
@@ -51,7 +72,9 @@ const products = [
     title: "Chemicals & Consumables",
     description:
       "Process chemicals and filter media for reliable plant operation, cleaning and odour control.",
-    image: consumables,
+    images: [
+      { src: consumables, label: "Treatment & filter media", alt: "Water treatment pre-filtration system" },
+    ],
     tags: ["Antiscalants & biocides", "Cleaning & cooling tower chemicals", "Odor control systems & chemicals", "Filter media"],
   },
 ];
@@ -218,12 +241,13 @@ function Product() {
               }}
             >
 
-              <div className="product-card-image">
-
-                <img
-                  src={product.image}
-                  alt={product.title}
-                />
+              <div className={`product-card-image product-card-gallery product-card-gallery-${product.images.length}`}>
+                {product.images.map((image) => (
+                  <figure key={image.label}>
+                    <img src={image.src} alt={image.alt} />
+                    <figcaption>{image.label}</figcaption>
+                  </figure>
+                ))}
 
                 <span className="product-card-number">
                   {product.number}

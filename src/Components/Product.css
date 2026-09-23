@@ -528,8 +528,17 @@
 }
 
 .dwa-product-item strong {
+  display: block;
   font-size: 13px;
   text-transform: capitalize;
+}
+
+.dwa-product-item small {
+  display: block;
+  margin-top: 4px;
+  color: #68767c;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .dwa-product-item b {

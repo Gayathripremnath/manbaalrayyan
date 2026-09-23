@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import "./Product.css";
 
-import img1 from "../assets/img1.png";
-import img2 from "../assets/img2.jpg";
-import img3 from "../assets/img3.jpg";
-// import img4 from "../assets/img4.png";
-// import img6 from "../assets/img6.png";
+import roPlant from "../assets/RO Plant 1.jpg";
+import mediaFilters from "../assets/media-filters.webp";
+import treatmentPlant from "../assets/treatment-plant.webp";
+import equipment from "../assets/Pump installation.jpeg";
+import consumables from "../assets/Pretreatment.jpg";
+import dwaSystem from "../assets/RO.jpg";
 
 const products = [
   {
@@ -13,57 +14,55 @@ const products = [
     category: "RO SYSTEMS",
     title: "Reverse Osmosis Systems",
     description:
-      "Reliable reverse osmosis systems designed for water purification and high-quality treated water applications.",
-    image: img1,
-    tags: ["RO", "Water Treatment"],
+      "Complete RO plants and key components for industrial, commercial and medical water treatment.",
+    image: roPlant,
+    tags: ["RO plants", "Membranes", "Pressure tubes"],
   },
   {
     number: "02",
     category: "WATER TREATMENT",
     title: "Media Filtration Systems",
     description:
-      "Filtration solutions designed to remove suspended solids and improve water quality before further treatment.",
-    image: img2,
-    tags: ["Filtration", "Pre-Treatment"],
+      "Pre-treatment systems that protect downstream equipment and improve feed-water quality.",
+    image: mediaFilters,
+    tags: ["Sand & carbon filters", "Multiport valves", "Softeners"],
   },
   {
     number: "03",
     category: "WASTEWATER",
     title: "STP Solutions",
     description:
-      "Sewage treatment solutions developed for effective wastewater treatment across different applications.",
-    image: img3,
-    tags: ["STP", "Wastewater"],
+      "Packaged modular and conventional sewage treatment plants for project-specific wastewater flows.",
+    image: treatmentPlant,
+    tags: ["Modular STP", "Conventional STP", "Wastewater"],
   },
   {
     number: "04",
     category: "EQUIPMENT",
     title: "Water Treatment Equipment",
     description:
-      "A range of equipment and components supporting complete water treatment plant installation and operation.",
-    image: img1,
-    tags: ["Equipment", "Industrial"],
+      "Plant equipment and process components for water treatment, wastewater treatment and disinfection.",
+    image: equipment,
+    tags: ["Pumps", "Micron filters & MCF housings", "Instruments & analysers", "Valves", "Electrochlorination", "UV systems", "Anoxic mixers"],
   },
   {
     number: "05",
     category: "CONSUMABLES",
     title: "Chemicals & Consumables",
     description:
-      "Treatment chemicals and consumables required for maintaining efficient and consistent plant performance.",
-    image: img2,
-    tags: ["Chemicals", "Consumables"],
+      "Process chemicals and filter media for reliable plant operation, cleaning and odour control.",
+    image: consumables,
+    tags: ["Antiscalants & biocides", "Cleaning & cooling tower chemicals", "Odor control systems & chemicals", "Filter media"],
   },
 ];
 
-const dwaProducts = [
-  "modula reverse osmosis systems",
-  "nephRO TP",
-  "centRO",
-  "HemoRO 4 ONE",
-  "nephro SAFE / HDS",
-  "CeCon 3000",
-  "Media Supply Systems",
-  "Ring-Main Solutions",
+const dealershipProducts = [
+  { brand: "DWA (Germany)", products: "RDU RO systems and medical water treatment systems" },
+  { brand: "SWAM Blowers (India)", products: "Blowers for treatment plant aeration and process use" },
+  { brand: "GOPANI Filtrations (India)", products: "Filter housings, cartridge filters and filtration systems" },
+  { brand: "SuperAqua Electrolysis (Japan)", products: "Electrolysis systems for alkaline water" },
+  { brand: "HAIWELL Automation (Hong Kong)", products: "Automation and control systems" },
+  { brand: "WaterEquip (France)", products: "Screens and degritter systems" },
 ];
 
 function Product() {
@@ -108,7 +107,7 @@ function Product() {
           <div className="product-hero-circle"></div>
 
           <img
-            src={img1}
+            src={roPlant}
             alt="Water treatment equipment"
           />
 
@@ -309,8 +308,8 @@ function Product() {
         <div className="dwa-image">
 
           <img
-            src={img3}
-            alt="DWA water treatment systems"
+            src={dwaSystem}
+            alt="Reverse osmosis system for specialist water treatment"
           />
 
           <div className="dwa-image-badge">
@@ -324,26 +323,25 @@ function Product() {
         <div className="dwa-content">
 
           <span className="product-section-label">
-            DWA MEDICAL WATER TECHNOLOGY
+            DEALERSHIP PRODUCTS
           </span>
 
           <h2>
-            Specialized systems
+            Specialist brands
             <br />
-            for <span>medical applications.</span>
+            for <span>complete solutions.</span>
           </h2>
 
           <p>
-            Manba Al Rayyan is the authorized distributor for DWA
-            medical water technology in Oman, supporting supply,
-            distribution, installation, maintenance and technical
-            services.
+            Our dealership portfolio brings specialist equipment and
+            technology from Germany, India, Japan, Hong Kong and France
+            to water and wastewater projects in Oman.
           </p>
 
 
           <div className="dwa-product-list">
 
-            {dwaProducts.map((item, index) => (
+            {dealershipProducts.map((item, index) => (
 
               <div
                 className="dwa-product-item"
@@ -353,7 +351,10 @@ function Product() {
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
-                <strong>{item}</strong>
+                <div>
+                  <strong>{item.brand}</strong>
+                  <small>{item.products}</small>
+                </div>
 
                 <b>↗</b>
               </div>

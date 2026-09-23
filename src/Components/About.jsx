@@ -435,7 +435,7 @@ const AboutUs = () => {
       {/* =========================
           OUR CLIENTS
       ========================= */}
-      <section className="about-clients">
+      {/* <section className="about-clients">
 
         <div className="about-container">
 
@@ -483,7 +483,7 @@ const AboutUs = () => {
 
         </div>
 
-      </section>
+      </section> */}
 
 
 

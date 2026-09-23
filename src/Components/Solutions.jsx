@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import "./Solutions.css";
 
-import img1 from "../assets/img1.png";
-import img2 from "../assets/img2.jpg";
-import img3 from "../assets/img3.jpg";
-// import img4 from "../assets/img4.png";
-// import img6 from "../assets/img6.png";
+import roPlant from "../assets/RO Plant 1.jpg";
+import stpPlant from "../assets/treatment-plant.webp";
+import mediaFilters from "../assets/media-filters.webp";
+import electrochlorination from "../assets/Electrochlorination.jpeg";
+import desalinationSystem from "../assets/RO.jpg";
+import refurbishment from "../assets/system-refurbishment.webp";
 
 const solutions = [
   {
@@ -14,7 +15,7 @@ const solutions = [
     short: "Reliable reverse osmosis systems for different water treatment requirements.",
     description:
       "We provide packaged reverse osmosis solutions designed around specific water quality and treatment requirements. Our solutions cover compact systems through larger water treatment applications.",
-    image: img1,
+    image: roPlant,
     points: [
       "Packaged RO plant solutions",
       "Water purification applications",
@@ -28,7 +29,7 @@ const solutions = [
     short: "Practical wastewater treatment solutions for commercial and institutional applications.",
     description:
       "Our packaged sewage treatment solutions are developed to provide effective wastewater treatment with integrated equipment and systems suited to project requirements.",
-    image: img2,
+    image: stpPlant,
     points: [
       "Packaged STP systems",
       "Wastewater treatment",
@@ -42,7 +43,7 @@ const solutions = [
     short: "Engineered water treatment solutions for industrial environments.",
     description:
       "We deliver industrial water treatment solutions combining appropriate treatment technologies, equipment and engineering support to meet the requirements of different industrial applications.",
-    image: img3,
+    image: mediaFilters,
     points: [
       "Industrial water treatment",
       "Pre-treatment systems",
@@ -56,7 +57,7 @@ const solutions = [
     short: "Water treatment solutions designed for municipal and public-sector requirements.",
     description:
       "Our municipal water treatment solutions support reliable water treatment infrastructure with suitable filtration, purification and supporting systems.",
-    image: img3,
+    image: electrochlorination,
     points: [
       "Municipal water treatment",
       "Filtration systems",
@@ -70,7 +71,7 @@ const solutions = [
     short: "Technology-driven solutions for converting saline water into usable water.",
     description:
       "Desalination is one of our core areas of exposure. We provide solutions based on reverse osmosis and supporting treatment systems for water desalination applications.",
-    image: img2,
+    image: desalinationSystem,
     points: [
       "Reverse osmosis desalination",
       "Pre-treatment systems",
@@ -84,7 +85,7 @@ const solutions = [
     short: "Upgrade existing treatment systems for better reliability and performance.",
     description:
       "We support refurbishment and retrofitting of existing water treatment systems by upgrading equipment and integrating improved solutions according to project requirements.",
-    image: img1,
+    image: refurbishment,
     points: [
       "Existing system assessment",
       "Equipment replacement",

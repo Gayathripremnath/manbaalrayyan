@@ -1,42 +1,42 @@
 import { motion } from "framer-motion";
 import "./Services.css";
 
-import img1 from "../assets/img1.png";
-import img2 from "../assets/img2.jpg";
-import img3 from "../assets/img3.jpg";
-// import img4 from "../assets/img4.png";
-// import img6 from "../assets/img6.png";
+import roPlant from "../assets/RO Plant 1.jpg";
+import pumpInstallation from "../assets/Pump installation.jpeg";
+import pretreatment from "../assets/Pretreatment.jpg";
+import electrochlorination from "../assets/Electrochlorination.jpeg";
+import waterTransfer from "../assets/Water Transfer.jpg";
 
 const services = [
   {
     number: "01",
     title: "Design & Engineering",
     text: "Complete engineering solutions for water, wastewater and desalination systems, developed to meet project requirements and operating conditions.",
-    image: img1,
+    image: roPlant,
   },
   {
     number: "02",
     title: "Supply & Installation",
     text: "Supply, installation and integration of treatment equipment and systems with a focus on reliable performance and efficient commissioning.",
-    image: img2,
+    image: pumpInstallation,
   },
   {
     number: "03",
     title: "Chemicals & Consumables",
     text: "Water treatment chemicals, consumables and essential process materials for maintaining efficient and dependable plant operation.",
-    image: img3,
+    image: pretreatment,
   },
   {
     number: "04",
     title: "Operation & Maintenance",
     text: "Skilled operation and maintenance support with trained personnel, safety procedures, technical assistance and responsive service.",
-    image: img1,
+    image: waterTransfer,
   },
   {
     number: "05",
     title: "Imports & Exports",
     text: "Import and export of water treatment equipment, systems, components and related products for industrial and commercial applications.",
-    image: img2,
+    image: electrochlorination,
   },
 ];
 
@@ -82,7 +82,7 @@ function Services() {
 
         <div className="services-hero-image">
           <img
-            src={img1}
+            src={roPlant}
             alt="Water treatment system"
           />
         </div>
@@ -242,7 +242,7 @@ function Services() {
           <div className="solutions-image">
 
             <img
-              src={img3}
+              src={roPlant}
               alt="Water treatment solution"
             />
 
@@ -417,7 +417,7 @@ function Services() {
         <div className="sustainability-image">
 
           <img
-            src={img1}
+            src={waterTransfer}
             alt="Sustainable water solution"
           />
 

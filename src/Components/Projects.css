@@ -439,6 +439,150 @@
 }
 
 /* =========================
+   COMPLETE PROJECT REGISTER
+========================= */
+
+.project-register-section {
+  padding: 80px 5%;
+  background: #f3f7f8;
+}
+
+.project-register-heading,
+.project-register-tools {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.project-register-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+}
+
+.project-register-heading h2 {
+  margin: 8px 0 0;
+  font-size: clamp(32px, 4vw, 48px);
+  letter-spacing: -1.5px;
+}
+
+.project-register-heading > p {
+  max-width: 420px;
+  margin: 0 0 5px;
+  color: #68767c;
+  line-height: 1.6;
+}
+
+.project-register-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  margin-top: 28px;
+  margin-bottom: 14px;
+  color: #68767c;
+  font-size: 13px;
+}
+
+.project-register-search {
+  flex: 1;
+  max-width: 460px;
+}
+
+.project-register-search input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid #d7e1e4;
+  border-radius: 3px;
+  background: #fff;
+  color: rgb(4, 39, 60);
+  font: inherit;
+}
+
+.project-register-scroll {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid #dce5e7;
+}
+
+.project-register-table {
+  width: 100%;
+  min-width: 960px;
+  border-collapse: collapse;
+  font-size: 13px;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.project-register-table th,
+.project-register-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid #e5ecee;
+  vertical-align: top;
+}
+
+.project-register-table thead {
+  background: rgb(4, 39, 60);
+  color: #fff;
+}
+
+.project-register-table thead th {
+  position: sticky;
+  top: 0;
+  font-size: 11px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.project-register-table tbody tr:nth-child(even) {
+  background: #f8fafb;
+}
+
+.project-register-table tbody td:first-child,
+.project-register-table tbody td:last-child {
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.project-register-table tbody td:nth-child(3) {
+  white-space: nowrap;
+}
+
+.project-register-table .project-register-group th {
+  padding: 12px;
+  background: #e2f3f2;
+  color: rgb(4, 39, 60);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.project-register-empty {
+  padding: 28px !important;
+  color: #68767c;
+  text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================
    RESPONSIVE
 ========================= */
 
@@ -525,5 +669,27 @@
 
   .projects-cta {
     padding: 70px 0;
+  }
+
+  .project-register-section {
+    padding: 65px 5%;
+  }
+
+  .project-register-heading {
+    display: block;
+  }
+
+  .project-register-heading > p {
+    margin-top: 16px;
+  }
+
+  .project-register-tools {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .project-register-search {
+    width: 100%;
+    max-width: none;
   }
 }

@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import "./Product.css";
 
 import img1 from "../assets/img1.png";
-import img2 from "../assets/img2.png";
-import img3 from "../assets/img3.png";
-import img4 from "../assets/img4.png";
-import img6 from "../assets/img6.png";
+import img2 from "../assets/img2.jpg";
+import img3 from "../assets/img3.jpg";
+// import img4 from "../assets/img4.png";
+// import img6 from "../assets/img6.png";
 
 const products = [
   {
@@ -42,7 +42,7 @@ const products = [
     title: "Water Treatment Equipment",
     description:
       "A range of equipment and components supporting complete water treatment plant installation and operation.",
-    image: img4,
+    image: img1,
     tags: ["Equipment", "Industrial"],
   },
   {
@@ -51,7 +51,7 @@ const products = [
     title: "Chemicals & Consumables",
     description:
       "Treatment chemicals and consumables required for maintaining efficient and consistent plant performance.",
-    image: img6,
+    image: img2,
     tags: ["Chemicals", "Consumables"],
   },
 ];

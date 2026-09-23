@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import "./Solutions.css";
 
 import img1 from "../assets/img1.png";
-import img2 from "../assets/img2.png";
-import img3 from "../assets/img3.png";
-import img4 from "../assets/img4.png";
-import img6 from "../assets/img6.png";
+import img2 from "../assets/img2.jpg";
+import img3 from "../assets/img3.jpg";
+// import img4 from "../assets/img4.png";
+// import img6 from "../assets/img6.png";
 
 const solutions = [
   {
@@ -57,7 +57,7 @@ const solutions = [
     short: "Water treatment solutions designed for municipal and public-sector requirements.",
     description:
       "Our municipal water treatment solutions support reliable water treatment infrastructure with suitable filtration, purification and supporting systems.",
-    image: img4,
+    image: img3,
     points: [
       "Municipal water treatment",
       "Filtration systems",
@@ -71,7 +71,7 @@ const solutions = [
     short: "Technology-driven solutions for converting saline water into usable water.",
     description:
       "Desalination is one of our core areas of exposure. We provide solutions based on reverse osmosis and supporting treatment systems for water desalination applications.",
-    image: img6,
+    image: img2,
     points: [
       "Reverse osmosis desalination",
       "Pre-treatment systems",

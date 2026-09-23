@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import "./Projects.css";
 
 import img1 from "../assets/img1.png";
-import img2 from "../assets/img2.png";
-import img3 from "../assets/img3.png";
-import img4 from "../assets/img4.png";
-import img6 from "../assets/img6.png";
+import img2 from "../assets/img2.jpg";
+import img3 from "../assets/img3.jpg";
+// import img4 from "../assets/img4.png";
+// import img6 from "../assets/img6.png";
 
 const projects = [
   {
@@ -46,7 +46,7 @@ const projects = [
     location: "Muscat, Oman",
     year: "2025",
     details: "Operation and maintenance of 2 × 400 m³/day RO plants.",
-    image: img4,
+    image: img1,
     category: "O&M",
   },
   {
@@ -56,7 +56,7 @@ const projects = [
     location: "Fahud, Oman",
     year: "2026",
     details: "Supply of 100 m³/day high RO water treatment system.",
-    image: img6,
+    image: img2,
     category: "RO & Desalination",
   },
   {

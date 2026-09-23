@@ -2,28 +2,47 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import './Home.css';
 import img1 from '../assets/img1.png';
-import img2 from '../assets/img2.png';
-import img3 from '../assets/img3.png';
-import img4 from '../assets/img4.png';
-import img5 from '../assets/img5.png';
-import img6 from '../assets/img6.png';
-import heroVideo from '../assets/hero.mp4';
+import img2 from '../assets/img2.jpg';
+import img3 from '../assets/img3.jpg';
+// import img4 from '../assets/img4.png';
+// import img5 from '../assets/img5.png';
+// import img6 from '../assets/img6.png';
+import heroVideo from '../assets/vid1.mp4';
+
+import ropLogo from "../assets/rop-a.jpg";
+import namaLogo from "../assets/nama.png";
+import healthLogo from "../assets/health.png";
+
+import defenceLogo from "../assets/defence.jpg";
+import omanAirportsLogo from "../assets/airport.png";
+import alAnsariLogo from "../assets/alansari.jpg";
+// import gulfInternationalLogo from "../assets/gulf-international.png";
+import sandroseLogo from "../assets/sandrose.png";
+import galfarLogo from "../assets/galfar.png";
+import ltLogo from "../assets/L@T.png";
+import saifHarrasiLogo from "../assets/saifalharasi.jpg";
+import alNabaLogo from "../assets/alNabaHolding.png";
+import crownePlazaLogo from "../assets/crowneplaza.png";
+import hashemiRawasLogo from "../assets/hasemi&rawas.png";
+import minaPetroleumLogo from "../assets/MinaPetroleum.png";
+import deltaLogo from "../assets/DeltaInternational.png";
+import khimjiLogo from "../assets/KhimjiRamadas.png";
 
 const selectedProjects = [
-  { image: img5, country: 'UAE', title: 'Marina 101', className: 'selected-project--marina' },
+  { image: img1, country: 'UAE', title: 'Marina 101', className: 'selected-project--marina' },
   { image: img1, country: 'UAE', title: 'Atria', className: 'selected-project--atria' },
-  { image: img6, country: 'UAE', title: 'Sky Hills Residences', className: 'selected-project--sky' },
-  { image: img4, country: 'UAE', title: 'Mohammad Bin Rashid Library', className: 'selected-project--library' },
+  { image: img2, country: 'UAE', title: 'Sky Hills Residences', className: 'selected-project--sky' },
+  { image: img1, country: 'UAE', title: 'Mohammad Bin Rashid Library', className: 'selected-project--library' },
   { image: img3, country: 'UAE', title: 'Verde', className: 'selected-project--verde' },
   { image: img2, country: 'UAE', title: 'The Address Hotel', className: 'selected-project--address' },
   { image: img3, country: 'Bahrain ', title: 'Al Ezzel Power Plant', className: 'selected-project--power' },
-  { image: img6, country: 'Qatar', title: 'Anti Doping Lab', className: 'selected-project--lab' },
+  { image: img2, country: 'Qatar', title: 'Anti Doping Lab', className: 'selected-project--lab' },
 ];
 
 const heroSlides = [
   { image: img1, alt: 'Products prepared for business supply' },
   { image: img2, alt: 'Trading and sourcing support' },
-  { image: img6, alt: 'Business operations and service delivery' },
+  { image: img3, alt: 'Business operations and service delivery' },
 ];
 
 export default function Home() {
@@ -212,193 +231,203 @@ export default function Home() {
 
   {/* IMAGE 4 — CHANGE HERE */}
   <div className="about-image image-four">
-    <img src={img4} alt="Water treatment equipment" />
+    <img src={img1} alt="Water treatment equipment" />
   </div>
 
   </motion.div>
 
 
   {/* RIGHT CONTENT */}
-  <motion.div className="about-modern-content">
+<motion.div className="about-modern-content">
+
+  {/* SECTION LABEL */}
+  <motion.div
+    className="about-section-label"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: true }}
+  >
+    <span></span>
+    <strong>ABOUT US</strong>
+  </motion.div>
+
+
+  {/* TITLE */}
+  <motion.h2
+    className="about-modern-title"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, delay: 0.1 }}
+    viewport={{ once: true }}
+  >
+    About Manba Al Rayyan
+  </motion.h2>
+
+
+  {/* DESCRIPTION */}
+  <motion.p
+    className="about-modern-description"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, delay: 0.15 }}
+    viewport={{ once: true }}
+  >
+    Manba Al Rayyan Trading & Services LLC is a foreign investment
+    company operating in Oman, providing reliable engineering,
+    construction, trading and technical services.
+  </motion.p>
+
+
+  <motion.p
+    className="about-modern-description"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, delay: 0.2 }}
+    viewport={{ once: true }}
+  >
+    With <strong>25+ satisfied clients</strong>, we are committed to
+    quality, innovation and sustainable solutions, with expertise in
+    water and wastewater treatment, desalination, engineering and
+    equipment supply.
+  </motion.p>
+
+
+  {/* STATS */}
+  <motion.div
+    className="about-stats"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 0.6, delay: 0.25 }}
+    viewport={{ once: true }}
+  >
 
     <motion.div
-      className="about-section-label"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
+      className="about-stat-card"
+      whileHover={{ y: -8 }}
+      transition={{ duration: 0.3 }}
     >
-      <span></span>
-      <strong>ABOUT US</strong>
-    </motion.div>
+      <div className="stat-icon">
+        ✓
+      </div>
 
-    <motion.h2
-      className="about-modern-title"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay: 0.1 }}
-      viewport={{ once: true }}
-    >
-      About Manba Al Rayyan
-    </motion.h2>
-
-    <motion.p
-      className="about-modern-description"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay: 0.15 }}
-      viewport={{ once: true }}
-    >
-      Manba Al Rayyan Trading & Services LLC is a wholly owned Omani company established with a team of experienced professionals in the field of
-engineering, construction and services. The company is at the heart of the Muscat city and is focused to deliver its clients and partners a complete
-contentment on their needs
-    </motion.p>
-
-    <motion.p
-      className="about-modern-description"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay: 0.2 }}
-      viewport={{ once: true }}
-    >
-      We have our major business into desalination, water and waste water treatment. A strong & innovative team who are structured to cater their services
-into Design & Engineering, Supply & Installation of Equipment’s, Supply of Chemicals & Consumables, Imports & Exports and Sustainable solutions. 
-    </motion.p>
-
-
-    {/* STATS */}
-    <motion.div
-      className="about-stats"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.6, delay: 0.25 }}
-      viewport={{ once: true }}
-    >
-
-      <motion.div
-        className="about-stat-card"
-        whileHover={{ y: -8 }}
-        transition={{ duration: 0.3 }}
-      >
-        <div className="stat-icon">
-          ✓
-        </div>
-
-        <div>
-          <strong>76+</strong>
-<span>Projects Delivered</span>
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="about-stat-card"
-        whileHover={{ y: -8 }}
-        transition={{ duration: 0.3 }}
-      >
-        <div className="stat-icon">
-          ◉
-        </div>
-
-        <div>
-          <strong>2015</strong>
-<span>Established</span>
-        </div>
-      </motion.div>
-
+      <div>
+        <strong>25+</strong>
+        <span>Satisfied Clients</span>
+      </div>
     </motion.div>
 
 
-    {/* VISION / MISSION */}
     <motion.div
-      className="about-tabs"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.6, delay: 0.3 }}
-      viewport={{ once: true }}
+      className="about-stat-card"
+      whileHover={{ y: -8 }}
+      transition={{ duration: 0.3 }}
     >
+      <div className="stat-icon">
+        ◉
+      </div>
 
-      <motion.button
-        className={`about-tab ${activeAboutTab === 'vision' ? 'active' : ''}`}
-        onClick={() => setActiveAboutTab('vision')}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        Vision
-      </motion.button>
-
-      <motion.button
-        className={`about-tab ${activeAboutTab === 'mission' ? 'active' : ''}`}
-        onClick={() => setActiveAboutTab('mission')}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        Mission
-      </motion.button>
-
-    </motion.div>
-
-    <motion.div
-      className="about-tab-content"
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      key={activeAboutTab}
-    >
-      <p>
-        {activeAboutTab === 'vision' ? (
-          <>
-            MARTS is structured to provide its client the best engineered quality
-systems and a sustainable solution in water and wastewater treatment
-with an environmental care. 
-
-          </>
-        ) : (
-          <>
-            We continue to create innovative ideas and empower the work force
-through continuous training on latest technologies and design to fulfill our
-vision. 
-          </>
-        )}
-      </p>
-    </motion.div>
-
-
-    {/* BOTTOM */}
-    <motion.div
-      className="about-bottom"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.6, delay: 0.35 }}
-      viewport={{ once: true }}
-    >
-
-      <motion.div
-        className="about-person"
-        whileHover={{ scale: 1.05 }}
-      >
-        <div className="person-avatar">
-          <span>👨🏻‍💼</span>
-        </div>
-
-        <div>
-          <small>Managing Director</small>
-          <strong>Manba Al Rayyan</strong>
-        </div>
-      </motion.div>
-
-      <motion.a
-        href="#contact"
-        className="about-read-btn"
-        whileHover={{ scale: 1.05, y: -4 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        Read More
-        <span>↗</span>
-      </motion.a>
-
+      <div>
+        <strong>2015</strong>
+        <span>Established</span>
+      </div>
     </motion.div>
 
   </motion.div>
+
+
+  {/* VISION / MISSION */}
+  <motion.div
+    className="about-tabs"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 0.6, delay: 0.3 }}
+    viewport={{ once: true }}
+  >
+
+    <motion.button
+      className={`about-tab ${
+        activeAboutTab === 'vision' ? 'active' : ''
+      }`}
+      onClick={() => setActiveAboutTab('vision')}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      Vision
+    </motion.button>
+
+    <motion.button
+      className={`about-tab ${
+        activeAboutTab === 'mission' ? 'active' : ''
+      }`}
+      onClick={() => setActiveAboutTab('mission')}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      Mission
+    </motion.button>
+
+  </motion.div>
+
+
+  {/* TAB CONTENT */}
+  <motion.div
+    className="about-tab-content"
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4 }}
+    key={activeAboutTab}
+  >
+
+    <p>
+      {activeAboutTab === 'vision'
+        ? 'To deliver quality engineered systems and sustainable solutions in water and wastewater treatment with a strong commitment to environmental care.'
+        : 'To drive innovation, develop our workforce and deliver effective engineering solutions that exceed client expectations.'
+      }
+    </p>
+
+  </motion.div>
+
+
+  {/* BOTTOM */}
+  <motion.div
+    className="about-bottom"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 0.6, delay: 0.35 }}
+    viewport={{ once: true }}
+  >
+
+    <motion.div
+      className="about-person"
+      whileHover={{ scale: 1.05 }}
+    >
+
+      <div className="person-avatar">
+        <span>🏢</span>
+      </div>
+
+      <div>
+        <small>Trusted Business Partner</small>
+        <strong>Manba Al Rayyan</strong>
+      </div>
+
+    </motion.div>
+
+
+    <motion.a
+      href="#contact"
+      className="about-read-btn"
+      whileHover={{ scale: 1.05, y: -4 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      Read More
+      <span>↗</span>
+    </motion.a>
+
+  </motion.div>
+
+</motion.div>
 
 </motion.section>
 
@@ -517,7 +546,7 @@ where
             whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)' }}
           >
             <div className="service-card-image">
-              <img src={img4} alt="Installation & Contracting" />
+              <img src={img1} alt="Installation & Contracting" />
               <div className="service-card-number">04</div>
             </div>
             <div className="service-card-content">
@@ -578,48 +607,563 @@ where
         </div>
       </section>
 
-      <section className="clients-section" aria-labelledby="clients-title">
-        <motion.div
-          className="clients-inner"
-          initial={{ opacity: 0, y: 26 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, ease: 'easeOut' }}
-          viewport={{ once: true, margin: '-80px' }}
-        >
-          <div className="clients-label"><span aria-hidden="true" />Our clients</div>
-          <h2 id="clients-title">We approach each client with dedication at the core of every engagement,<br className="clients-title-break" /> achieving great successes.</h2>
+      <section
+  className="clients-section"
+  aria-labelledby="clients-title"
+>
+  <motion.div
+    className="clients-inner"
+    initial={{ opacity: 0, y: 26 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{
+      duration: 0.65,
+      ease: "easeOut"
+    }}
+    viewport={{
+      once: true,
+      margin: "-80px"
+    }}
+  >
 
-          <div className="clients-logos" aria-label="Clients we have worked with">
-            <div className="clients-logos-track" style={{ '--client-slide': activeClientSlide }}>
-              {[0, 1].map((set) => (
-                <React.Fragment key={set}>
-                  <div className="client-logo client-logo--adnoc" aria-label="ADNOC Offshore">
-                    <span className="adnoc-mark" aria-hidden="true">◒</span><span>ADNOC<br /><small>Offshore</small></span>
-                  </div>
-                  <div className="client-logo client-logo--npcc" aria-label="NPCC">NPCC</div>
-                  <div className="client-logo client-logo--petrofac" aria-label="Petrofac">Petrofac <span className="petrofac-mark" aria-hidden="true">P</span></div>
-                  <div className="client-logo client-logo--gsec" aria-label="GS Engineering and Construction"><span className="gsec-mark" aria-hidden="true" />GS <small>E&amp;C</small></div>
-                  <div className="client-logo client-logo--technip" aria-label="Technip">Technip</div>
-                  <div className="client-logo client-logo--cpecc" aria-label="CPECC"><span className="cpecc-mark" aria-hidden="true" />CPECC</div>
-                </React.Fragment>
-              ))}
-            </div>
+    {/* LABEL */}
+    <div className="clients-label">
+      <span aria-hidden="true" />
+      Our Clients
+    </div>
+
+
+    {/* TITLE */}
+    <h2 id="clients-title">
+      We approach each client with dedication at the core
+      of every engagement,
+      <br className="clients-title-break" />
+      achieving great successes.
+    </h2>
+
+
+    {/* CLIENT LOGOS */}
+    <div
+      className="clients-logos"
+      aria-label="Clients we have worked with"
+    >
+
+      <div
+        className="clients-logos-track"
+        style={{
+          "--client-slide": activeClientSlide
+        }}
+      >
+
+        {/* =========================
+            SET 1
+        ========================= */}
+        <React.Fragment>
+
+          {/* ROYAL OMAN POLICE */}
+          <div
+            className="client-logo"
+            aria-label="Royal Oman Police"
+          >
+            <img
+              src={ropLogo}
+              alt="Royal Oman Police"
+              style={{
+    width: "150px",
+    height: "75px",
+    objectFit: "contain"
+  }}
+            />
           </div>
 
-          <div className="clients-pagination" aria-label="Client logo carousel controls">
-            {Array.from({ length: 6 }, (_, index) => (
-              <button
-                className={activeClientSlide === index ? 'is-active' : ''}
-                key={index}
-                type="button"
-                aria-label={`Show client slide ${index + 1}`}
-                aria-current={activeClientSlide === index ? 'true' : undefined}
-                onClick={() => setActiveClientSlide(index)}
-              />
-            ))}
+
+          {/* NAMA WATER */}
+          <div
+            className="client-logo"
+            aria-label="Nama Water"
+          >
+            <img
+              src={namaLogo}
+              alt="Nama Water"
+                          style={{
+    width: "150px",
+    height: "75px",
+    objectFit: "contain"
+  }}
+            />
           </div>
-        </motion.div>
-      </section>
+
+
+          {/* MINISTRY OF HEALTH */}
+          <div
+            className="client-logo"
+            aria-label="Ministry of Health"
+          >
+            <img
+              src={healthLogo}
+              alt="Ministry of Health"
+                          style={{
+    width: "150px",
+    height: "75px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+
+          {/* MINISTRY OF DEFENCE */}
+          <div
+            className="client-logo"
+            aria-label="Ministry of Defence"
+          >
+            <img
+              src={defenceLogo}
+              alt="Ministry of Defence"
+              style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+
+          {/* OMAN AIRPORTS */}
+          <div
+            className="client-logo"
+            aria-label="Oman Airports"
+          >
+            <img
+              src={omanAirportsLogo}
+              alt="Oman Airports"
+                          style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+
+          {/* AL ANSARI TRADING */}
+          <div
+            className="client-logo"
+            aria-label="Al Ansari Trading"
+          >
+            <img
+              src={alAnsariLogo}
+              alt="Al Ansari Trading"
+              style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+
+          {/* GULF INTERNATIONAL CONTRACTING */}
+          <div
+            className="client-logo"
+            aria-label="Gulf International Contracting"
+          >
+            <img
+              src={healthLogo}
+              alt="Gulf International Contracting"
+              style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}  
+            />
+          </div>
+
+
+          {/* SANDROSE */}
+          <div
+            className="client-logo"
+            aria-label="Sandrose"
+          >
+            <img
+              src={sandroseLogo}
+              alt="Sandrose"
+                          style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+
+          {/* GALFAR */}
+          <div
+            className="client-logo"
+            aria-label="Galfar"
+          >
+            <img
+              src={galfarLogo}
+              alt="Galfar"
+                          style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+
+          {/* L&T */}
+          <div
+            className="client-logo"
+            aria-label="L&T"
+          >
+            <img
+              src={ltLogo}
+              alt="L&T"
+                          style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+
+          {/* SAIF AL HARRASI */}
+          <div
+            className="client-logo"
+            aria-label="Saif Al Harrasi"
+          >
+            <img
+              src={healthLogo}
+              alt="Saif Al Harrasi"
+                          style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+
+          {/* AL NABA HOLDING */}
+          <div
+            className="client-logo"
+            aria-label="Al Naba Holding"
+          >
+            <img
+              src={alAnsariLogo}
+              alt="Al Naba Holding"
+                          style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+
+          {/* CROWNE PLAZA */}
+          <div
+            className="client-logo"
+            aria-label="Crowne Plaza Hotel"
+          >
+            <img
+              src={crownePlazaLogo}
+              alt="Crowne Plaza Hotel"
+                          style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+
+          {/* AL HASHEMI & AL RAWAS */}
+          <div
+            className="client-logo"
+            aria-label="Al Hashemi and Al Rawas"
+          >
+            <img
+              src={hashemiRawasLogo}
+              alt="Al Hashemi and Al Rawas"
+                          style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+
+          {/* MINA PETROLEUM */}
+          <div
+            className="client-logo"
+            aria-label="Mina Petroleum"
+          >
+            <img
+              src={minaPetroleumLogo}
+              alt="Mina Petroleum"
+                          style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+
+          {/* DELTA INTERNATIONAL */}
+          <div
+            className="client-logo"
+            aria-label="Delta International"
+          >
+            <img
+              src={deltaLogo}
+              alt="Delta International"
+                          style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+
+          {/* KHIMJI RAMDAS */}
+          <div
+            className="client-logo"
+            aria-label="Khimji Ramdas"
+          >
+            <img
+              src={khimjiLogo}
+              alt="Khimji Ramdas"
+                          style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+        </React.Fragment>
+
+
+        {/* =========================
+            SET 2
+            Duplicate for carousel
+        ========================= */}
+        <React.Fragment>
+
+          <div className="client-logo">
+            <img src={ropLogo} alt="Royal Oman Police"
+                        style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }} />
+
+          </div>
+
+          <div className="client-logo">
+            <img src={namaLogo} alt="Nama Water"
+                        style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }} />
+          </div>
+
+          <div className="client-logo">
+            <img src={healthLogo} alt="Ministry of Health"      
+                   style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}/>
+          </div>
+
+          <div className="client-logo">
+            <img src={defenceLogo} alt="Ministry of Defence" 
+                        style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}/>
+          </div>
+
+          <div className="client-logo">
+            <img src={omanAirportsLogo} alt="Oman Airports"
+                        style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }} />
+          </div>
+
+          <div className="client-logo">
+            <img src={alAnsariLogo} alt="Al Ansari Trading"
+              style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }} />
+          </div>
+
+          <div className="client-logo">
+            <img
+              src={healthLogo}
+              alt="Gulf International Contracting"
+              style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+          <div className="client-logo">
+            <img src={sandroseLogo} alt="Sandrose"
+                        style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }} />
+          </div>
+
+          <div className="client-logo">
+            <img src={galfarLogo} alt="Galfar" 
+                        style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}/>
+          </div>
+
+          <div className="client-logo">
+            <img src={ltLogo} alt="L&T" 
+                        style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}/>
+          </div>
+
+          <div className="client-logo">
+            <img src={saifHarrasiLogo} alt="Saif Al Harrasi"            style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }} />
+          </div>
+
+          <div className="client-logo">
+            <img src={alNabaLogo} alt="Al Naba Holding"
+                        style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }} />
+          </div>
+
+          <div className="client-logo">
+            <img src={crownePlazaLogo} alt="Crowne Plaza Hotel"
+                        style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }} />
+          </div>
+
+          <div className="client-logo">
+            <img
+              src={hashemiRawasLogo }
+              alt="Al Hashemi and Al Rawas"
+              style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+          <div className="client-logo">
+            <img
+              src={minaPetroleumLogo}
+              alt="Mina Petroleum"
+              style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+          <div className="client-logo">
+            <img
+              src={deltaLogo}
+              alt="Delta International"
+                          style={{
+    width: "150px",
+    height: "70px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+          <div className="client-logo">
+            <img
+              src={khimjiLogo}
+              alt="Khimji Ramdas"
+                          style={{
+    width: "200px",
+    height: "75px",
+    objectFit: "contain"
+  }}
+            />
+          </div>
+
+        </React.Fragment>
+
+      </div>
+    </div>
+
+
+    {/* PAGINATION */}
+    <div
+      className="clients-pagination"
+      aria-label="Client logo carousel controls"
+    >
+
+      {Array.from(
+        { length: 6 },
+        (_, index) => (
+          <button
+            className={
+              activeClientSlide === index
+                ? "is-active"
+                : ""
+            }
+            key={index}
+            type="button"
+            aria-label={`Show client slide ${index + 1}`}
+            aria-current={
+              activeClientSlide === index
+                ? "true"
+                : undefined
+            }
+            onClick={() =>
+              setActiveClientSlide(index)
+            }
+          />
+        )
+      )}
+
+    </div>
+
+  </motion.div>
+</section>
 
       <section className="project-cta-section" aria-labelledby="project-cta-title">
         <motion.div

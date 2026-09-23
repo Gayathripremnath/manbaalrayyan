@@ -1004,7 +1004,7 @@
 
   .client-logos {
     display: flex;
-    gap: 60px;
+    /* gap: 60px; */
     font-weight: 700;
     font-size: 20px;
     color: #fff;

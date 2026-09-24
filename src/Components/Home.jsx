@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import './Home.css';
-import img1 from '../assets/img1.png';
 import img2 from '../assets/img2.jpg';
 import img3 from '../assets/img3.jpg';
+import roPlantImage from '../assets/RO Plant 1.jpg';
+import waterTransferImage from '../assets/Water Transfer.jpg';
+import filterMediaImage from '../assets/media-filters.webp';
+import pumpInstallationImage from '../assets/Pump installation.jpeg';
+import treatmentPlantImage from '../assets/treatment-plant.webp';
+import highPurityImage from '../assets/high-purity-ro.webp';
 import heroVideo from '../assets/video.mp4';
 // import img4 from '../assets/img4.png';
 // import img5 from '../assets/img5.png';
@@ -28,11 +34,13 @@ import minaPetroleumLogo from "../assets/MinaPetroleum.png";
 import deltaLogo from "../assets/DeltaInternational.png";
 import khimjiLogo from "../assets/KhimjiRamadas.png";
 
+const MotionLink = motion.create(Link);
+
 const selectedProjects = [
-  { image: img1, country: 'UAE', title: 'Marina 101', className: 'selected-project--marina' },
-  { image: img1, country: 'UAE', title: 'Atria', className: 'selected-project--atria' },
+  { image: roPlantImage, country: 'UAE', title: 'Marina 101', className: 'selected-project--marina' },
+  { image: waterTransferImage, country: 'UAE', title: 'Atria', className: 'selected-project--atria' },
   { image: img2, country: 'UAE', title: 'Sky Hills Residences', className: 'selected-project--sky' },
-  { image: img1, country: 'UAE', title: 'Mohammad Bin Rashid Library', className: 'selected-project--library' },
+  { image: pumpInstallationImage, country: 'UAE', title: 'Mohammad Bin Rashid Library', className: 'selected-project--library' },
   { image: img3, country: 'UAE', title: 'Verde', className: 'selected-project--verde' },
   { image: img2, country: 'UAE', title: 'The Address Hotel', className: 'selected-project--address' },
   { image: img3, country: 'Bahrain ', title: 'Al Ezzel Power Plant', className: 'selected-project--power' },
@@ -79,7 +87,7 @@ export default function Home() {
     loop
     playsInline
     preload="metadata"
-    poster={img1}
+    poster={treatmentPlantImage}
     aria-hidden="true"
   >
     <source src={heroVideo} type="video/mp4" />
@@ -165,7 +173,7 @@ export default function Home() {
     </motion.div>
 
    <div className="about-image image-one">
-  <img src={img1} alt="Industrial equipment" />
+  <img src={roPlantImage} alt="Reverse osmosis water treatment plant" />
 </div>
 
      <div className="about-image image-two">
@@ -178,7 +186,7 @@ export default function Home() {
 
   {/* IMAGE 4 — CHANGE HERE */}
   <div className="about-image image-four">
-    <img src={img1} alt="Water treatment equipment" />
+  <img src={filterMediaImage} alt="Water filtration equipment" />
   </div>
 
   </motion.div>
@@ -427,7 +435,7 @@ where
             whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)' }}
           >
             <div className="service-card-image">
-              <img src={img1} alt="Supply & Trading" />
+              <img src={highPurityImage} alt="High purity water treatment system" />
               <div className="service-card-number">01</div>
             </div>
             <div className="service-card-content">
@@ -493,7 +501,7 @@ where
             whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)' }}
           >
             <div className="service-card-image">
-              <img src={img1} alt="Installation & Contracting" />
+              <img src={pumpInstallationImage} alt="Water pump installation" />
               <div className="service-card-number">04</div>
             </div>
             <div className="service-card-content">
@@ -513,9 +521,9 @@ where
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <motion.a href="#" className="all-services-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <MotionLink to="/services" className="all-services-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             All services <span>→</span>
-          </motion.a>
+          </MotionLink>
         </motion.div>
       </motion.section>
 

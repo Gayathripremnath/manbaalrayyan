@@ -1,5 +1,6 @@
 import './Footer.css';
 import logo from '../assets/Logo.png';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -23,13 +24,13 @@ export default function Footer() {
         <div className="footer-links">
           <h3>QUICK LINKS</h3>
 
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/services">Services</a>
-          <a href="/products">Products</a>
-          <a href="/projects">Projects</a>
-          <a href="/solutions">Solutions</a>
-          <a href="/contact">Contact</a>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/services">Services</Link>
+          <Link to="/products">Products</Link>
+          <Link to="/projects">Projects</Link>
+          <Link to="/solutions">Solutions</Link>
+          <Link to="/contact">Contact</Link>
         </div>
 
         {/* CONTACT */}

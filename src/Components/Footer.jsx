@@ -38,13 +38,14 @@ export default function Footer() {
           <h3>CONTACT</h3>
 
           <p>
-            Garhoud Star Building<br />
-            P.O. Box 46686<br />
-            Dubai, United Arab Emirates
+            164T, Block 349, Way No. 4902<br />
+            Near Areej Oil, Rusayl Industrial Area<br />
+            Rusayl, Sultanate of Oman
           </p>
 
-          <a href="tel:+97148352303">+971 4 835 2303</a>
-          <a href="mailto:info@sanayate.com">info@sanayate.com</a>
+          <a href="tel:+96822575015">22575015</a>
+          <a href="mailto:marketing@martsaqua.com">marketing@martsaqua.com</a>
+          <a href="mailto:martenquiries@gmail.com">martenquiries@gmail.com</a>
         </div>
 
       </div>
@@ -58,7 +59,7 @@ export default function Footer() {
 
         <div className="footer-legal">
           <a href="#terms">Terms</a>
-          <a href="#privacy">Privacy</a>
+          <a href="/privacy">Privacy</a>
         </div>
 
       </div>

@@ -6,17 +6,23 @@ const contactItems = [
   {
     number: "01",
     label: "CALL US",
-    value: "+968 24265028",
-    href: "tel:+96824265028",
+    value: "22575015",
+    href: "tel:+96822575015",
   },
   {
     number: "02",
-    label: "EMAIL",
+    label: "EMAIL ENQUIRIES",
     value: "martenquiries@gmail.com",
     href: "mailto:martenquiries@gmail.com",
   },
   {
     number: "03",
+    label: "MARKETING EMAIL",
+    value: "marketing@martsaqua.com",
+    href: "mailto:marketing@martsaqua.com",
+  },
+  {
+    number: "04",
     label: "VISIT US",
     value: "Rusayl Industrial Area, Oman",
     href: "#location",
@@ -568,10 +574,9 @@ ${message}
           </h2>
 
           <p>
-            Plot No. 1070, Way No. 4902,
-            Postal Code 124, PO Box 24,
-            Rusayl Industrial Area,
-            Sultanate of Oman.
+            164T, Block 349, Way No. 4902,
+            Near Areej Oil, Rusayl Industrial Area,
+            Rusayl, Sultanate of Oman.
           </p>
 
           <div className="location-details">
@@ -583,7 +588,7 @@ ${message}
               </small>
 
               <strong>
-                +968 24265028
+                +968 22575015
               </strong>
 
             </div>
@@ -595,6 +600,7 @@ ${message}
               </small>
 
               <strong>
+                marketing@martsaqua.com<br />
                 martenquiries@gmail.com
               </strong>
 

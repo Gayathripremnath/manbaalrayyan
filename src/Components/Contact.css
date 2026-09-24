@@ -150,7 +150,7 @@
 
 .contact-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   background: #fff;
   box-shadow: 0 25px 70px rgba(4, 39, 60, 0.13);
 }

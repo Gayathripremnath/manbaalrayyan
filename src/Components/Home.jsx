@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import './Home.css';
 import img1 from '../assets/img1.png';
@@ -40,7 +40,6 @@ const selectedProjects = [
 ];
 
 export default function Home() {
-  const scrollTopButtonRef = useRef(null);
   const [activeAboutTab, setActiveAboutTab] = useState('vision');
   const [activeClientSlide, setActiveClientSlide] = useState(0);
 
@@ -67,41 +66,8 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    let animationFrameId = null;
-
-    const updateScrollProgress = () => {
-      if (animationFrameId !== null) return;
-
-      animationFrameId = window.requestAnimationFrame(() => {
-        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
-        scrollTopButtonRef.current?.style.setProperty('--scroll-progress', `${Math.min(100, Math.max(0, progress))}%`);
-        animationFrameId = null;
-      });
-    };
-
-    updateScrollProgress();
-    window.addEventListener('scroll', updateScrollProgress, { passive: true });
-    window.addEventListener('resize', updateScrollProgress);
-    return () => {
-      window.removeEventListener('scroll', updateScrollProgress);
-      window.removeEventListener('resize', updateScrollProgress);
-      if (animationFrameId !== null) window.cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
   return (
     <div className="home-wrapper">
-      <button
-        className="scroll-top-button"
-        ref={scrollTopButtonRef}
-        type="button"
-        aria-label="Scroll to top"
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      >
-        <span aria-hidden="true">↑</span>
-      </button>
       <section
         className="hero-section"
       >
@@ -1158,7 +1124,7 @@ where
           <h2 id="project-cta-title">Ready to power your next project?</h2>
           <p className="project-cta-description">From specification to commissioning — our team across the Middle East is ready to engineer the right solution for you.</p>
           <div className="project-cta-actions">
-            <a className="project-cta-button project-cta-button--primary" href="mailto:info@example.com">Get a Quote <span aria-hidden="true">→</span></a>
+            <a className="project-cta-button project-cta-button--primary" href="mailto:martenquiries@gmail.com">Get a Quote <span aria-hidden="true">→</span></a>
             <a className="project-cta-button project-cta-button--secondary" href="#company-profile"><span aria-hidden="true">⇩</span> Company Profile</a>
           </div>
         </motion.div>
